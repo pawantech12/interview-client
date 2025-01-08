@@ -23,14 +23,14 @@ const App = () => {
         <Route path="/aiInterview" element={<AiInterview />} />
         <Route path="/non_technical" element={<NonTechnical />} />
         <Route path='/dummy' element={<Dummy />} />
-        <Route path="/applicantResult" element={<ApplicantResult />} />
+        <Route path="/" element={<ApplicantResult />} />
         <Route path="/userDashboard" element={<UserDashboard />} />
         <Route path="/technical" element={<Technical />} />
         <Route path="/afterSelection" element={<AfterSelection />} />
         <Route path="/technicalPracticeSimulation" element={<TechnicalPracticeSimulation />} />
         <Route path="/nonTechnicalPracticeSimulation" element={<NonTechnicalPracticeSimulation /> } />
         <Route path="/courseSummary" element={<CourseSummary />} />
-        <Route path="/" element={<CandidateProfile />} />
+        <Route path="/profile" element={<CandidateProfile />} />
         <Route path="/secondDummy" element={<SecondDummy />} />
         <Route path="/recruitDash" element={<RecruiterDashboard />} />
         <Route path="/suggestion" element={<Suggestion />} />
