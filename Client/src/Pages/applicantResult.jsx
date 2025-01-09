@@ -216,7 +216,7 @@ const ApplicantResult = () => {
             className="absolute top-[70%] left-0 transform -translate-y-1/2"
           />
         </div>
-        <div className="bg-white -mt-20 pb-2 rounded-[32px] rounded-t-none h-[160px] pt-[65px] pl-[40px] justify-between flex ">
+        <div className="bg-white -mt-16 pb-2 rounded-[32px] rounded-t-none h-[160px] pt-[60px] pl-[40px] justify-between flex ">
           <div className="">
             <div className="flex">
               <p className="font-bold text-[24px] text-[#353535] mr-3">
@@ -294,29 +294,25 @@ const ApplicantResult = () => {
       </div>
 
       {/* Card Section */}
-      <div
-        className="h-[50%] overflow-y-auto mx-[30px] mt-[13rem]"
-        style={{ direction: "rtl" }}
-      >
-        <div
-          className="h-full flex flex-wrap justify-center gap-[30px]  "
-          style={{ direction: "ltr" }}
-        >
-          {currentCandidates.map((candidate, index) => (
-            <Card
-              key={index}
-              index={index}
-              candidate={candidate}
-              showGradient={showGradient}
-              onGradientComplete={handleGradientComplete}
-              liylaHelp={liylaHelp}
-            />
-          ))}
+      <div className="mt-[13rem] bg-[#F2F2F2]">
+        <div className=" mx-[30px] ">
+          <div className="h-full flex flex-wrap justify-center gap-[30px]  ">
+            {currentCandidates.map((candidate, index) => (
+              <Card
+                key={index}
+                index={index}
+                candidate={candidate}
+                showGradient={showGradient}
+                onGradientComplete={handleGradientComplete}
+                liylaHelp={liylaHelp}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Pagination */}
-      <div className="h-[10%] flex items-center">
+      <div className="h-[10%] flex items-center bg-[#F2F2F2] py-3">
         <div className="ml-10 w-[50px]">
           <img src={hamburgerBar} alt="Hamburger menu" />
         </div>
