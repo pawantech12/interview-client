@@ -208,7 +208,7 @@ const ApplicantResult = () => {
 
       {/* Company Description */}
       <div className="h-[45%] px-12 relative mt-[2%]">
-        <div className="relative h-[40%]">
+        <div className="relative h-[100%]">
           <div className="h-[70%] w-full bg-gradient-to-b from-[#FEC4CB] via-[#F4C8EF] to-[#F4C8EF] rounded-[20px]"></div>
           <img
             src={Company}
@@ -216,38 +216,42 @@ const ApplicantResult = () => {
             className="absolute top-[70%] left-0 transform -translate-y-1/2"
           />
         </div>
-        <div className="bg-white -mt-16 pb-6 rounded-[32px] rounded-t-none h-[50%] pt-[65px] pl-[40px] justify-center flex flex-col">
-          <div className="flex">
-            <p className="font-bold text-[24px] text-[#353535] mr-3">
-              Senior UI/UX Designer
-            </p>
-            <p className="mt-3 mr-3 flex">
-              <img src={Location} alt="Location" className="w-5 h-5 mt-1" />
-              <span className="ml-0.5 text-[#979797] text-[14px] font-medium">
-                Bangalore
-              </span>
-            </p>
-            <div className="flex items-center mr-[6px]">
-              <div className="border border-[#979797] rounded-full h-[4px] w-[4px] bg-[#979797]"></div>
-            </div>
-            <p className="mt-3 mr-3 flex">
-              <img src={Briefcase} alt="Briefcase" className="w-5 h-5 mt-1" />
-              <span className="ml-0.5 text-[#979797] text-[14px] font-medium">
-                3 - 5 Yrs
-              </span>
-            </p>
-          </div>
-          <div className="flex justify-between pt-2">
+        <div className="bg-white -mt-20 pb-2 rounded-[32px] rounded-t-none h-[160px] pt-[65px] pl-[40px] justify-between flex ">
+          <div className="">
             <div className="flex">
-              <p className="text-[#353535] text-[18px]">Amazon</p>
-              <p className="text-[#979797] pl-5 flex">
-                <img src={Star} alt="Star" className="w-6 h-6 mt-1" />
-                <span className="pl-1 pr-2 text-[16px]">4.7</span>
+              <p className="font-bold text-[24px] text-[#353535] mr-3">
+                Senior UI/UX Designer
               </p>
-              <p className="pl-4 text-[#979797] text-[16px]">1267 reviews</p>
+              <p className="mt-3 mr-3 flex">
+                <img src={Location} alt="Location" className="w-5 h-5 mt-1" />
+                <span className="ml-0.5 text-[#979797] text-[14px] font-medium">
+                  Bangalore
+                </span>
+              </p>
+              <div className="flex items-center mr-[6px]">
+                <div className="border border-[#979797] rounded-full h-[4px] w-[4px] bg-[#979797]"></div>
+              </div>
+              <p className="mt-3 mr-3 flex">
+                <img src={Briefcase} alt="Briefcase" className="w-5 h-5 mt-1" />
+                <span className="ml-0.5 text-[#979797] text-[14px] font-medium">
+                  3 - 5 Yrs
+                </span>
+              </p>
             </div>
+            <div className="flex justify-between pt-2">
+              <div className="flex">
+                <p className="text-[#353535] text-[18px]">Amazon</p>
+                <p className="text-[#979797] pl-5 flex">
+                  <img src={Star} alt="Star" className="w-6 h-6 mt-1" />
+                  <span className="pl-1 pr-2 text-[16px]">4.7</span>
+                </p>
+                <p className="pl-4 text-[#979797] text-[16px]">1267 reviews</p>
+              </div>
+            </div>
+          </div>
+          <div className="self-end pb-4 pr-5">
             {helpButton ? (
-              <div className={`relative w-[300px] h-[40px] mr-[14px]`}>
+              <div className={`relative w-[300px] h-[40px] mr-[14px] self-end`}>
                 <div className="absolute inset-0 overflow-hidden rounded-full">
                   <div
                     ref={gradientRef}
@@ -291,10 +295,13 @@ const ApplicantResult = () => {
 
       {/* Card Section */}
       <div
-        className="h-[50%] overflow-y-auto ml-[30px] -mt-[3%]"
+        className="h-[50%] overflow-y-auto mx-[30px] mt-[13rem]"
         style={{ direction: "rtl" }}
       >
-        <div className="h-full flex flex-wrap" style={{ direction: "ltr" }}>
+        <div
+          className="h-full flex flex-wrap justify-center gap-[30px]  "
+          style={{ direction: "ltr" }}
+        >
           {currentCandidates.map((candidate, index) => (
             <Card
               key={index}

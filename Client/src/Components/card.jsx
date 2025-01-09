@@ -87,9 +87,7 @@ const Card = ({
 
   return (
     <div
-      className={`w-full md:w-[45%] lg:w-[45%] border border-white bg-white rounded-[24px] py-[16px] px-[24px] shadow-lg mb-10 ${
-        index === 2 ? "mx-5" : "mx-3"
-      } ${index !== 0 && index !== 3 ? "ml-10" : ""} relative overflow-hidden`}
+      className={`w-full md:w-[48%] lg:w-[48%] border border-white bg-white rounded-[24px] py-[16px] px-[24px]  relative overflow-hidden`}
       style={{ direction: "ltr" }}
       onMouseEnter={(e) =>
         (e.currentTarget.style.boxShadow = "0px 4px 3px rgba(0, 114, 220, 0.3)")
@@ -114,105 +112,107 @@ const Card = ({
           isGradientVisible ? "text-gray-800" : "text-black"
         }`}
       >
-        <div className="flex flex-col justify-between">
-          <div
-            className={`flex border-b border-[#B9B9B9]  ${
-              showRecommendation && [1, 2, 3].includes(candidate.rank)
-                ? "pb-4"
-                : "pb-[18px]"
-            }`}
-          >
-            <figure className="w-[48px] h-[48px]">
-              <img
-                src={candidate.src}
-                alt={candidate.name}
-                className="w-full h-full rounded-full shadow-inner"
-              />
-            </figure>
-            <div className="ml-4 flex justify-between w-[90%]">
-              <div>
-                <p className="text-[16px] font-bold text-[#1E1E1E]">
-                  {candidate.name}
-                </p>
-                <p className="text-[#6F6F6F] text-[12px]">
-                  {candidate.title} at {candidate.location}
-                </p>
-                <p className="text-[#6F6F6F] text-[12px]">
-                  {candidate.experience} years experience
-                </p>
-                {showRecommendation && liylaHelp && (
-                  <div>
-                    {[1, 2, 3].includes(candidate.rank) && (
-                      <div className="text-[12px] font-semibold text-white flex justify-center items-center rounded-full py-[4px] px-[8px] my-1 bg-lyla-gradient shadow-[0px_0px_4px_0px_#C9FFFC]">
-                        LIYLA RECOMMENDED
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-              <div
-                className={`py-[8px] px-[4px] w-[64px] bg-[#55557C] rounded-[12px] gap-[6px] flex flex-col items-center justify-center `}
-              >
-                <p className="text-white text-[14px] font-[300]">RANK</p>
-                <p className="text-white text-[28px] font-bold">
-                  {candidate.rank}
-                </p>
+        <div className="flex flex-col justify-between gap-[40px]">
+          <div>
+            <div
+              className={`flex border-b border-[#B9B9B9]  ${
+                showRecommendation && [1, 2, 3].includes(candidate.rank)
+                  ? "pb-4"
+                  : "pb-[18px]"
+              }`}
+            >
+              <figure className="w-[48px] h-[48px]">
+                <img
+                  src={candidate.src}
+                  alt={candidate.name}
+                  className="w-full h-full rounded-full shadow-inner"
+                />
+              </figure>
+              <div className="ml-4 flex justify-between w-[90%]">
+                <div>
+                  <p className="text-[16px] font-bold text-[#1E1E1E]">
+                    {candidate.name}
+                  </p>
+                  <p className="text-[#6F6F6F] text-[12px]">
+                    {candidate.title} at {candidate.location}
+                  </p>
+                  <p className="text-[#6F6F6F] text-[12px]">
+                    {candidate.experience} years experience
+                  </p>
+                  {showRecommendation && liylaHelp && (
+                    <div>
+                      {[1, 2, 3].includes(candidate.rank) && (
+                        <div className="text-[12px] font-semibold text-white flex justify-center items-center rounded-full py-[4px] px-[8px] my-1 bg-lyla-gradient shadow-[0px_0px_4px_0px_#C9FFFC]">
+                          LIYLA RECOMMENDED
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+                <div
+                  className={`py-[8px] px-[4px] w-[64px] bg-[#55557C] rounded-[12px] gap-[6px] flex flex-col items-center justify-center `}
+                >
+                  <p className="text-white text-[14px] font-[300]">RANK</p>
+                  <p className="text-white text-[28px] font-bold">
+                    {candidate.rank}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className=" relative">
-            <div className="flex justify-between py-[8px] px-[16px]">
-              {candidate.rounds.map((round, roundIndex) => (
-                <div key={roundIndex} className="relative text-center">
-                  <div className="flex justify-center ml-[10px] mb-[23px]">
-                    <p className="mt-2 text-[12px] text-[#6F6F6F]">
-                      {round.name}
-                    </p>
-                  </div>
-                  <div className="relative w-[63px] h-[61px] mx-auto">
-                    {generateDots(round.progress).map((style, index) => (
-                      <div
-                        key={index}
-                        className="absolute w-[12px] h-[12px] rounded-full"
-                        style={{
-                          ...style,
-                          ...getDotPosition(index, 50),
-                        }}
-                      />
-                    ))}
-                    <div className="absolute inset-0 flex items-center justify-center ml-[10px] mt-[15px]">
-                      <p className="text-[#6F6F6F] font-semibold">
-                        {round.progress}%
+            <div className=" relative">
+              <div className="flex justify-between py-[8px] px-[16px]">
+                {candidate.rounds.map((round, roundIndex) => (
+                  <div key={roundIndex} className="relative text-center">
+                    <div className="flex justify-center ml-[10px] mb-[23px]">
+                      <p className="mt-2 text-[12px] text-[#6F6F6F]">
+                        {round.name}
                       </p>
                     </div>
+                    <div className="relative w-[63px] h-[61px] mx-auto">
+                      {generateDots(round.progress).map((style, index) => (
+                        <div
+                          key={index}
+                          className="absolute w-[12px] h-[12px] rounded-full"
+                          style={{
+                            ...style,
+                            ...getDotPosition(index, 50),
+                          }}
+                        />
+                      ))}
+                      <div className="absolute inset-0 flex items-center justify-center ml-[10px] mt-[15px]">
+                        <p className="text-[#6F6F6F] font-semibold">
+                          {round.progress}%
+                        </p>
+                      </div>
+                    </div>
+                    <p className="text-[#6F6F6F] font-semibold mt-[23px] ml-[10px] text-[12px]">
+                      {round.description}
+                    </p>
                   </div>
-                  <p className="text-[#6F6F6F] font-semibold mt-[23px] ml-[10px] text-[12px]">
-                    {round.description}
+                ))}
+                <div className="flex flex-col justify-between mt-2 items-center">
+                  <p className="text-[#6F6F6F] ">Total</p>
+                  <p className="text-[40px] text-[#24DF3A] font-semibold">
+                    {calculateAverageProgress(candidate.rounds)}%
                   </p>
+                  <div className="justify-center flex">
+                    <p className="font-semibold text-[#6F6F6F]">
+                      Cumulative score
+                    </p>
+                  </div>
                 </div>
-              ))}
-              <div className="flex flex-col mt-2">
-                <p className="text-[#6F6F6F] mb-[20%] ml-[23%]">Total</p>
-                <p className="text-[40px] text-[#24DF3A] font-semibold">
-                  {calculateAverageProgress(candidate.rounds)}%
-                </p>
-                <div className="justify-center flex items-end h-full">
-                  <p className="font-semibold text-[#6F6F6F]">
-                    Cumulative score
+                <div className="flex flex-col mt-2 justify-center">
+                  <p className="bg-skill-gradient bg-clip-text text-transparent mb-[20%] ml-[23%]">
+                    Score
                   </p>
-                </div>
-              </div>
-              <div className="flex flex-col mt-2 justify-center">
-                <p className="bg-skill-gradient bg-clip-text text-transparent mb-[20%] ml-[23%]">
-                  Score
-                </p>
-                <p className="text-[40px] font-semibold bg-skill-gradient bg-clip-text text-transparent">
-                  {candidate.skillStack}%
-                </p>
-                <div className="justify-center flex items-end h-full">
-                  <p className="font-semibold bg-skill-gradient bg-clip-text text-transparent">
-                    Skill Stack
+                  <p className="text-[40px] font-semibold bg-skill-gradient bg-clip-text text-transparent">
+                    {candidate.skillStack}%
                   </p>
+                  <div className="justify-center flex items-end h-full">
+                    <p className="font-semibold bg-skill-gradient bg-clip-text text-transparent">
+                      Skill Stack
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
