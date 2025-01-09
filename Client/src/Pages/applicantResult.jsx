@@ -313,7 +313,7 @@ const ApplicantResult = () => {
 
       {/* Pagination */}
       <div className="h-[10%] flex items-center bg-[#F2F2F2] py-3">
-        <div className="ml-10 w-[50px]">
+        <div className="ml-10 w-[50px] fixed bottom-5">
           <img src={hamburgerBar} alt="Hamburger menu" />
         </div>
         <div className="flex-grow flex justify-center">
