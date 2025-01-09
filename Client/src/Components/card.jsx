@@ -100,14 +100,13 @@ const Card = ({
         <div className="absolute inset-0 overflow-hidden">
           <div
             ref={gradientRef}
-            className="absolute inset-[-1000%] transition-opacity duration-300"
+            className="absolute inset-[-300%] origin-center"
             style={{
               background: `conic-gradient(from -62.75deg at 50.01% 48.12%, #5C9AFF -58.82deg, #5C9AFF 0.91deg, #3973E8 52.72deg, #2760DD 100.52deg, #1E57D7 168.35deg, #3873E1 210.22deg, #5290EB 251.44deg, #5C9AFF 301.18deg, #5C9AFF 360.91deg)`,
               transform: "translateY(10%)",
               opacity: 0.4, // Adjust this value to fine-tune opacity
             }}
           />
-          <div className="absolute inset-0 bg-gray-800/70 backdrop-blur-sm" />
         </div>
       )}
       <div
@@ -115,8 +114,14 @@ const Card = ({
           isGradientVisible ? "text-gray-800" : "text-black"
         }`}
       >
-        <div>
-          <div className="flex">
+        <div className="flex flex-col justify-between">
+          <div
+            className={`flex border-b border-[#B9B9B9]  ${
+              showRecommendation && [1, 2, 3].includes(candidate.rank)
+                ? "pb-4"
+                : "pb-[18px]"
+            }`}
+          >
             <figure className="w-[48px] h-[48px]">
               <img
                 src={candidate.src}
@@ -124,15 +129,15 @@ const Card = ({
                 className="w-full h-full rounded-full shadow-inner"
               />
             </figure>
-            <div className="ml-4 flex justify-between w-[94%]">
+            <div className="ml-4 flex justify-between w-[90%]">
               <div>
                 <p className="text-[16px] font-bold text-[#1E1E1E]">
                   {candidate.name}
                 </p>
-                <p className="text-[#6F6F6F]">
+                <p className="text-[#6F6F6F] text-[12px]">
                   {candidate.title} at {candidate.location}
                 </p>
-                <p className="text-[#6F6F6F]">
+                <p className="text-[#6F6F6F] text-[12px]">
                   {candidate.experience} years experience
                 </p>
                 {showRecommendation && liylaHelp && (
@@ -146,23 +151,17 @@ const Card = ({
                 )}
               </div>
               <div
-                className={`w-[60px] bg-[#55557C] rounded-[12px] flex flex-col items-center justify-center ${
-                  showRecommendation &&
-                  liylaHelp &&
-                  [1, 2, 3].includes(candidate.rank)
-                    ? "h-[72%]"
-                    : "h-full"
-                }`}
+                className={`py-[8px] px-[4px] w-[64px] bg-[#55557C] rounded-[12px] gap-[6px] flex flex-col items-center justify-center `}
               >
-                <p className="text-white">RANK</p>
-                <p className="text-white text-[20px] font-bold">
+                <p className="text-white text-[14px] font-[300]">RANK</p>
+                <p className="text-white text-[28px] font-bold">
                   {candidate.rank}
                 </p>
               </div>
             </div>
           </div>
-          <div className="border-t border-gray-300 mt-4 pt-4 relative">
-            <div className="flex justify-between">
+          <div className=" relative">
+            <div className="flex justify-between py-[8px] px-[16px]">
               {candidate.rounds.map((round, roundIndex) => (
                 <div key={roundIndex} className="relative text-center">
                   <div className="flex justify-center ml-[10px] mb-[23px]">
@@ -193,24 +192,24 @@ const Card = ({
                 </div>
               ))}
               <div className="flex flex-col mt-2">
-                <p className="text-[#6F6F6F] mb-[20%] ml-[20%]">Total</p>
+                <p className="text-[#6F6F6F] mb-[20%] ml-[23%]">Total</p>
                 <p className="text-[40px] text-[#24DF3A] font-semibold">
                   {calculateAverageProgress(candidate.rounds)}%
                 </p>
-                <div className="justify-end flex items-end h-full">
+                <div className="justify-center flex items-end h-full">
                   <p className="font-semibold text-[#6F6F6F]">
                     Cumulative score
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col mt-2">
-                <p className="bg-skill-gradient bg-clip-text text-transparent mb-[20%] ml-[20%]">
+              <div className="flex flex-col mt-2 justify-center">
+                <p className="bg-skill-gradient bg-clip-text text-transparent mb-[20%] ml-[23%]">
                   Score
                 </p>
                 <p className="text-[40px] font-semibold bg-skill-gradient bg-clip-text text-transparent">
-                  {candidate.skillStack}
+                  {candidate.skillStack}%
                 </p>
-                <div className="justify-end flex items-end h-full">
+                <div className="justify-center flex items-end h-full">
                   <p className="font-semibold bg-skill-gradient bg-clip-text text-transparent">
                     Skill Stack
                   </p>
@@ -218,11 +217,11 @@ const Card = ({
               </div>
             </div>
           </div>
-        </div>
-        <div className="flex justify-center mt-[9px]">
-          <p className="font-semibold text-[#0072DC] text-[12px] border-2 border-[#0072DC] rounded-full h-[28px] w-[86px] flex items-center justify-center cursor-pointer">
-            View more
-          </p>
+          <div className="flex justify-center mt-[9px]">
+            <p className="font-semibold text-[#0072DC] text-[12px] border-2 border-[#0072DC] rounded-full h-[28px] w-[86px] flex items-center justify-center cursor-pointer">
+              View more
+            </p>
+          </div>
         </div>
       </div>
     </div>

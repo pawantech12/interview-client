@@ -251,23 +251,15 @@ const ApplicantResult = () => {
                 <div className="absolute inset-0 overflow-hidden rounded-full">
                   <div
                     ref={gradientRef}
-                    className="absolute inset-[-620%] origin-center"
+                    className="absolute inset-[-630%] "
                     style={{
-                      background: `conic-gradient(from 270deg, 
-  #5C9AFF 0%, 
-  #5C9AFF 9%, 
-  #3973E8 53%, 
-  #2760DD 101%, 
-  #1E57D7 168%, 
-  #3873E1 210%, 
-  #5290EB 251%, 
-  #5C9AFF 301%, 
-  #5C9AFF 360%)`,
+                      background: `conic-gradient(from -62.75deg at 50.01% 48.12%, #5C9AFF -58.82deg, #5C9AFF 0.91deg, #3973E8 52.72deg, #2760DD 100.52deg, #1E57D7 168.35deg, #3873E1 210.22deg, #5290EB 251.44deg, #5C9AFF 301.18deg, #5C9AFF 360.91deg)`,
                       transform: "translateY(10%)",
+                      opacity: 0.4,
                     }}
                   />
                 </div>
-                <div className="absolute inset-0 rounded-full bg-gray-800/70 backdrop-blur-sm" />
+
                 <input
                   type="text"
                   placeholder="Liyla Help"
