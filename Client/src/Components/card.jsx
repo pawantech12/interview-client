@@ -125,7 +125,7 @@ const Card = ({
                 <img
                   src={candidate.src}
                   alt={candidate.name}
-                  className="w-full h-full rounded-full shadow-inner"
+                  className="w-full h-full object-cover rounded-full shadow-inner"
                 />
               </figure>
               <div className="ml-4 flex justify-between w-[90%]">

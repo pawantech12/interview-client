@@ -3,26 +3,27 @@ import Liyla from "../assets/Type=Layila.svg";
 import Company from "../assets/company logo.png";
 import Location from "../assets/location.svg";
 import Briefcase from "../assets/briefcase.svg";
-import Sanjay from "../assets/sanjay.jpeg";
-import Mukesh from "../assets/mukesh.jpeg";
-import Debaleena from "../assets/debaleena.jpg";
-import Manjeet from "../assets/manjeet.jpeg";
-import Priyansh from "../assets/priyansh.jpg";
-import Bieden from "../assets/bieden.jpeg";
-import Joe from "../assets/joe.jpeg";
-import sundar from "../assets/sundar pitchai.jpg";
-import edwin from "../assets/edwin.jpg";
-import joseph from "../assets/joseph.jpg";
-import raj from "../assets/raj.jpg";
+
 import boy1 from "../assets/boy1.jpg";
 import boy2 from "../assets/boy2.jpg";
 import boy3 from "../assets/boy3.jpg";
 import boy4 from "../assets/boy4.jpg";
+import boy5 from "../assets/boy5.jpg";
+import boy6 from "../assets/boy6.jpg";
+import boy7 from "../assets/boy7.jpg";
+import boy8 from "../assets/boy8.jpg";
+import boy9 from "../assets/boy9.jpg";
+import boy10 from "../assets/boy10.jpg";
+import boy11 from "../assets/boy11.jpg";
+import boy12 from "../assets/boy12.jpg";
+import boy13 from "../assets/boy13.jpg";
 import girl1 from "../assets/girl1.jpg";
 import girl2 from "../assets/girl2.jpg";
 import girl3 from "../assets/girl3.jpg";
 import girl4 from "../assets/girl4.jpg";
-import Rajan from "../assets/rajan.jpg";
+import girl5 from "../assets/girl5.jpg";
+import girl6 from "../assets/girl6.jpg";
+import Rajan from "../assets/boy14.jpg";
 import hamburgerBar from "../assets/hamburgerBar.png";
 import Star from "../assets/star.svg";
 import Send from "../assets/whiteSend.svg";
@@ -41,7 +42,7 @@ const ApplicantResult = () => {
       location: "India",
       experience: 12,
       appliedDaysAgo: 15,
-      src: Sanjay,
+      src: boy5,
       rounds: [
         { progress: 85, name: "Round 1", description: "Technical" },
         { progress: 95, name: "Round 2", description: "HR Interview" },
@@ -55,7 +56,7 @@ const ApplicantResult = () => {
       location: "America",
       experience: 6,
       appliedDaysAgo: 13,
-      src: Mukesh,
+      src: boy6,
       rounds: [
         { progress: 20, name: "Round 1", description: "Design Task" },
         { progress: 35, name: "Round 2", description: "Team Interview" },
@@ -69,7 +70,7 @@ const ApplicantResult = () => {
       location: "Austin",
       experience: 8,
       appliedDaysAgo: 10,
-      src: Debaleena,
+      src: girl5,
       rounds: [
         { progress: 60, name: "Round 1", description: "Portfolio Review" },
         { progress: 90, name: "Round 2", description: "Technical Round" },
@@ -83,7 +84,7 @@ const ApplicantResult = () => {
       location: "Chicago",
       experience: 12,
       appliedDaysAgo: 1,
-      src: Manjeet,
+      src: boy7,
       rounds: [
         { progress: 60, name: "Round 1", description: "Technical" },
         { progress: 75, name: "Round 2", description: "HR Interview" },
@@ -97,7 +98,7 @@ const ApplicantResult = () => {
       location: "Boston",
       experience: 12,
       appliedDaysAgo: 7,
-      src: Priyansh,
+      src: boy8,
       rounds: [
         { progress: 45, name: "Round 1", description: "Research Task" },
         { progress: 88, name: "Round 2", description: "Team Interview" },
@@ -111,7 +112,7 @@ const ApplicantResult = () => {
       location: "Seattle",
       experience: 4,
       appliedDaysAgo: 3,
-      src: Joe,
+      src: boy9,
       rounds: [
         { progress: 55, name: "Round 1", description: "Technical" },
         { progress: 90, name: "Round 2", description: "HR Interview" },
@@ -125,7 +126,7 @@ const ApplicantResult = () => {
       location: "Bieden",
       experience: 6,
       appliedDaysAgo: 4,
-      src: Bieden,
+      src: boy10,
       rounds: [
         { progress: 35, name: "Round 1", description: "Portfolio Review" },
         { progress: 75, name: "Round 2", description: "Team Interview" },
@@ -153,7 +154,7 @@ const ApplicantResult = () => {
       location: "New York",
       experience: 5,
       appliedDaysAgo: 10,
-      src: raj,
+      src: girl6,
       rounds: [
         { progress: 60, name: "Round 1", description: "Technical" },
         { progress: 80, name: "Round 2", description: "HR Interview" },
@@ -167,7 +168,7 @@ const ApplicantResult = () => {
       location: "San Francisco",
       experience: 7,
       appliedDaysAgo: 3,
-      src: sundar,
+      src: boy11,
       rounds: [
         { progress: 50, name: "Round 1", description: "Technical Coding" },
         { progress: 90, name: "Round 2", description: "System Design" },
@@ -181,7 +182,7 @@ const ApplicantResult = () => {
       location: "Chicago",
       experience: 6,
       appliedDaysAgo: 8,
-      src: edwin,
+      src: boy12,
       rounds: [
         { progress: 70, name: "Round 1", description: "Portfolio Review" },
         { progress: 100, name: "Round 2", description: "Design Challenge" },
@@ -195,7 +196,7 @@ const ApplicantResult = () => {
       location: "Austin",
       experience: 4,
       appliedDaysAgo: 5,
-      src: joseph,
+      src: boy13,
       rounds: [
         { progress: 60, name: "Round 1", description: "Coding Assessment" },
         { progress: 85, name: "Round 2", description: "Team Interview" },
@@ -504,7 +505,7 @@ const ApplicantResult = () => {
 
       {/* Pagination */}
       <div className="h-[10%] flex items-center bg-[#F2F2F2] py-8">
-        <div className="ml-10 w-[50px] fixed bottom-5">
+        <div className="ml-10 w-[50px] fixed bottom-5 z-20">
           <img src={hamburgerBar} alt="Hamburger menu" />
         </div>
         <div className="flex-grow flex justify-center">
