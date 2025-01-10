@@ -21,7 +21,7 @@ const Card = ({
 
       const rotateGradient = () => {
         if (gradientRef.current) {
-          rotationRef.current = (rotationRef.current - 1) % 360;
+          rotationRef.current = (rotationRef.current - 8) % 360;
           gradientRef.current.style.transform = `translateY(10%) rotate(${rotationRef.current}deg)`;
         }
       };
@@ -101,8 +101,7 @@ const Card = ({
             className="absolute inset-[-630%] origin-center"
             style={{
               background: `conic-gradient(from -62.75deg at 50.01% 48.12%, #5C9AFF -58.82deg, #5C9AFF 0.91deg, #3973E8 52.72deg, #2760DD 100.52deg, #1E57D7 168.35deg, #3873E1 210.22deg, #5290EB 251.44deg, #5C9AFF 301.18deg, #5C9AFF 360.91deg)`,
-              transform: "translateY(10%)",
-              opacity: 0.5, // Adjust this value to fine-tune opacity
+              opacity: 0.8, // Adjust this value to fine-tune opacity
             }}
           />
         </div>
@@ -125,24 +124,42 @@ const Card = ({
                 <img
                   src={candidate.src}
                   alt={candidate.name}
-                  className="w-full h-full object-cover rounded-full shadow-inner"
+                  className="w-full h-full object-cover rounded-full shadow-inner grayscale-0"
                 />
               </figure>
               <div className="ml-4 flex justify-between w-[90%]">
                 <div>
-                  <p className="text-[16px] font-bold text-[#1E1E1E]">
+                  <p
+                    className={`text-[16px] font-bold  ${
+                      isGradientVisible ? "text-slate-300" : "text-[#1E1E1E]"
+                    }`}
+                  >
                     {candidate.name}
                   </p>
-                  <p className="text-[#6F6F6F] text-[12px]">
+                  <p
+                    className={` text-[12px] ${
+                      isGradientVisible ? "text-slate-300" : "text-[#6F6F6F]"
+                    }`}
+                  >
                     {candidate.title} at {candidate.location}
                   </p>
-                  <p className="text-[#6F6F6F] text-[12px]">
+                  <p
+                    className={` ${
+                      isGradientVisible ? "text-slate-300" : "text-[#6F6F6F]"
+                    } text-[12px]`}
+                  >
                     {candidate.experience} years experience
                   </p>
                   {showRecommendation && liylaHelp && (
                     <div>
                       {[1, 2, 3].includes(candidate.rank) && (
-                        <div className="text-[12px] font-semibold text-white flex justify-center items-center rounded-full py-[4px] px-[8px] my-1 bg-lyla-gradient shadow-[0px_0px_4px_0px_#C9FFFC]">
+                        <div
+                          className={`text-[12px] font-semibold text-white  ${
+                            isGradientVisible
+                              ? "text-[#0072DC] bg-slate-300"
+                              : "text-white bg-lyla-gradient"
+                          } flex justify-center items-center rounded-full py-[4px] px-[8px] my-1  shadow-[0px_0px_4px_0px_#C9FFFC]`}
+                        >
                           LIYLA RECOMMENDED
                         </div>
                       )}
@@ -150,10 +167,22 @@ const Card = ({
                   )}
                 </div>
                 <div
-                  className={`py-[8px] px-[4px] w-[64px] bg-[#55557C] rounded-[12px] gap-[6px] flex flex-col items-center justify-center `}
+                  className={`py-[8px] px-[4px] w-[64px]  rounded-[12px] gap-[6px] flex flex-col items-center justify-center ${
+                    isGradientVisible ? "bg-slate-300 " : "bg-[#55557C]"
+                  }`}
                 >
-                  <p className="text-white text-[14px] font-[300]">RANK</p>
-                  <p className="text-white text-[28px] font-bold">
+                  <p
+                    className={` text-[14px] font-[300] ${
+                      isGradientVisible ? "text-[#0072DC]" : "text-white"
+                    }`}
+                  >
+                    RANK
+                  </p>
+                  <p
+                    className={`${
+                      isGradientVisible ? "text-[#0072DC]" : "text-white"
+                    } text-[28px] font-bold`}
+                  >
                     {candidate.rank}
                   </p>
                 </div>
@@ -164,7 +193,13 @@ const Card = ({
                 {candidate.rounds.map((round, roundIndex) => (
                   <div key={roundIndex} className="relative text-center">
                     <div className="flex justify-center ml-[10px] mb-[23px]">
-                      <p className="mt-2 text-[12px] text-[#6F6F6F]">
+                      <p
+                        className={`mt-2 text-[12px] ${
+                          isGradientVisible
+                            ? "text-slate-300"
+                            : "text-[#6F6F6F]"
+                        }`}
+                      >
                         {round.name}
                       </p>
                     </div>
@@ -180,36 +215,78 @@ const Card = ({
                         />
                       ))}
                       <div className="absolute inset-0 flex items-center justify-center ml-[10px] mt-[15px]">
-                        <p className="text-[#6F6F6F] font-semibold">
+                        <p
+                          className={`${
+                            isGradientVisible
+                              ? "text-slate-300"
+                              : "text-[#6F6F6F]"
+                          } font-semibold`}
+                        >
                           {round.progress}%
                         </p>
                       </div>
                     </div>
-                    <p className="text-[#6F6F6F] font-semibold mt-[23px] ml-[10px] text-[12px]">
+                    <p
+                      className={`${
+                        isGradientVisible ? "text-slate-300" : "text-[#6F6F6F]"
+                      } font-semibold mt-[23px] ml-[10px] text-[12px]`}
+                    >
                       {round.description}
                     </p>
                   </div>
                 ))}
                 <div className="flex flex-col justify-between mt-2 items-center">
-                  <p className="text-[#6F6F6F] ">Total</p>
-                  <p className="text-[40px] text-[#24DF3A] font-semibold">
+                  <p
+                    className={`${
+                      isGradientVisible ? "text-slate-300" : "text-[#6F6F6F]"
+                    }`}
+                  >
+                    Total
+                  </p>
+                  <p
+                    className={`text-[40px]  ${
+                      isGradientVisible ? "text-slate-300" : "text-[#24DF3A]"
+                    } font-semibold`}
+                  >
                     {calculateAverageProgress(candidate.rounds)}%
                   </p>
                   <div className="justify-center flex">
-                    <p className="font-semibold text-[#6F6F6F]">
+                    <p
+                      className={`font-semibold ${
+                        isGradientVisible ? "text-slate-300" : "text-[#6F6F6F]"
+                      }`}
+                    >
                       Cumulative score
                     </p>
                   </div>
                 </div>
                 <div className="flex flex-col mt-2 justify-between items-center">
-                  <p className="bg-skill-gradient bg-clip-text text-transparent ">
+                  <p
+                    className={`${
+                      isGradientVisible
+                        ? "text-slate-300"
+                        : "bg-skill-gradient bg-clip-text text-transparent"
+                    } `}
+                  >
                     Score
                   </p>
-                  <p className="text-[40px] font-semibold bg-skill-gradient bg-clip-text text-transparent">
+                  <p
+                    className={`text-[40px] font-semibold ${
+                      isGradientVisible
+                        ? "text-slate-300"
+                        : "bg-skill-gradient bg-clip-text text-transparent"
+                    }`}
+                  >
                     {candidate.skillStack}
                   </p>
                   <div className="justify-center flex items-end ">
-                    <p className="font-semibold bg-skill-gradient bg-clip-text text-transparent">
+                    <p
+                      className={`font-semibold  ${
+                        isGradientVisible
+                          ? "text-slate-300"
+                          : "bg-skill-gradient bg-clip-text text-transparent"
+                      }`}
+                    >
                       Skill Stack
                     </p>
                   </div>
@@ -218,7 +295,13 @@ const Card = ({
             </div>
           </div>
           <div className="flex justify-center mt-[9px]">
-            <p className="font-semibold text-[#0072DC] text-[12px] border-2 border-[#0072DC] rounded-full h-[28px] w-[86px] flex items-center justify-center cursor-pointer shadow-[0px_0px_4px_0px_#00000040]">
+            <p
+              className={`font-semibold text-[12px] border-2  rounded-full h-[28px] w-[86px] flex items-center justify-center cursor-pointer shadow-[0px_0px_4px_0px_#00000040] ${
+                isGradientVisible
+                  ? "text-slate-300 border-slate-300"
+                  : "text-[#0072DC] border-[#0072DC]"
+              }`}
+            >
               View more
             </p>
           </div>
