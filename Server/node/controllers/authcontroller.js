@@ -1,9 +1,7 @@
 import Candidate from "../Models/candidate.js";
-import { fileURLToPath } from "url";
 import fs from "fs";
 import path from "path";
-import gTTS from "gtts";
-// import OpenAI from "openai";
+import OpenAI from "openai";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -54,16 +52,9 @@ const storeInterviewData = async (req, res) => {
     res.status(500).json({ message: "Error saving interview data" });
   }
 };
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-// const openai = new OpenAI();
-
-// Create __dirname equivalent
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-// Define the output folder
-const OUTPUT_FOLDER = path.resolve(__dirname, "output");
-
+const OUTPUT_FOLDER = path.resolve("./output");
 if (!fs.existsSync(OUTPUT_FOLDER)) {
   fs.mkdirSync(OUTPUT_FOLDER);
 }
@@ -76,36 +67,27 @@ const aitts = async (req, res) => {
       return res.status(400).json({ error: "Text is required for TTS." });
     }
 
-    // Define the output file path
     const outputFilePath = path.join(OUTPUT_FOLDER, `output_${Date.now()}.mp3`);
 
-    // Generate audio using gTTS
-    const gtts = new gTTS(text, "en"); // Specify the language as "en" for English
-    gtts.save(outputFilePath, (err) => {
+    const mp3 = await openai.audio.speech.create({
+      model: "tts-1",
+      voice: "echo",
+      input: text,
+    });
+
+    const buffer = Buffer.from(await mp3.arrayBuffer());
+    await fs.promises.writeFile(outputFilePath, buffer);
+
+    res.sendFile(outputFilePath, (err) => {
       if (err) {
-        console.error("Error generating TTS:", err);
-        return res
-          .status(500)
-          .json({ error: "TTS generation failed.", details: err.message });
+        console.error("Error sending audio file:", err);
+        res.status(500).json({ error: "Failed to send audio file." });
       }
 
-      console.log(`File saved at: ${outputFilePath}`);
-
-      // Send the audio file
-      res.sendFile(outputFilePath, (err) => {
-        if (err) {
-          console.error("Error sending audio file:", err);
-          return res.status(500).json({ error: "Failed to send audio file." });
+      fs.unlink(outputFilePath, (unlinkErr) => {
+        if (unlinkErr) {
+          console.error("Error deleting audio file:", unlinkErr);
         }
-
-        // Clean up the generated file
-        // fs.unlink(outputFilePath, (unlinkErr) => {
-        //   if (unlinkErr) {
-        //     console.error("Error deleting audio file:", unlinkErr);
-        //   } else {
-        //     console.log(`File deleted: ${outputFilePath}`);
-        //   }
-        // });
       });
     });
   } catch (error) {

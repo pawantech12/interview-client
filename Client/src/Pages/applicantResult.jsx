@@ -135,6 +135,186 @@ const ApplicantResult = () => {
       skillStack: 48,
       rank: 6,
     },
+    {
+      name: "Priya",
+      title: "Frontend Developer",
+      location: "New York",
+      experience: 5,
+      appliedDaysAgo: 10,
+      src: Rajan,
+      rounds: [
+        { progress: 60, name: "Round 1", description: "Technical" },
+        { progress: 80, name: "Round 2", description: "HR Interview" },
+      ],
+      skillStack: 42,
+      rank: 8,
+    },
+    {
+      name: "Amit",
+      title: "Backend Engineer",
+      location: "San Francisco",
+      experience: 7,
+      appliedDaysAgo: 3,
+      src: Rajan,
+      rounds: [
+        { progress: 50, name: "Round 1", description: "Technical Coding" },
+        { progress: 90, name: "Round 2", description: "System Design" },
+      ],
+      skillStack: 55,
+      rank: 3,
+    },
+    {
+      name: "Samantha",
+      title: "UI/UX Designer",
+      location: "Chicago",
+      experience: 6,
+      appliedDaysAgo: 8,
+      src: Rajan,
+      rounds: [
+        { progress: 70, name: "Round 1", description: "Portfolio Review" },
+        { progress: 100, name: "Round 2", description: "Design Challenge" },
+      ],
+      skillStack: 47,
+      rank: 7,
+    },
+    {
+      name: "Rahul",
+      title: "Full Stack Developer",
+      location: "Austin",
+      experience: 4,
+      appliedDaysAgo: 5,
+      src: Rajan,
+      rounds: [
+        { progress: 60, name: "Round 1", description: "Coding Assessment" },
+        { progress: 85, name: "Round 2", description: "Team Interview" },
+      ],
+      skillStack: 50,
+      rank: 5,
+    },
+    {
+      name: "Elena",
+      title: "Product Manager",
+      location: "Los Angeles",
+      experience: 10,
+      appliedDaysAgo: 12,
+      src: Rajan,
+      rounds: [
+        { progress: 70, name: "Round 1", description: "Behavioral Interview" },
+        { progress: 100, name: "Round 2", description: "Panel Discussion" },
+      ],
+      skillStack: 40,
+      rank: 4,
+    },
+    {
+      name: "John",
+      title: "DevOps Engineer",
+      location: "Seattle",
+      experience: 9,
+      appliedDaysAgo: 7,
+      src: Rajan,
+      rounds: [
+        { progress: 80, name: "Round 1", description: "Technical" },
+        { progress: 100, name: "Round 2", description: "Final Interview" },
+      ],
+      skillStack: 60,
+      rank: 2,
+    },
+    {
+      name: "Meera",
+      title: "Software Engineer",
+      location: "Dallas",
+      experience: 3,
+      appliedDaysAgo: 14,
+      src: Rajan,
+      rounds: [
+        { progress: 50, name: "Round 1", description: "Online Test" },
+        { progress: 75, name: "Round 2", description: "Technical Interview" },
+      ],
+      skillStack: 38,
+      rank: 10,
+    },
+    {
+      name: "Vikram",
+      title: "Data Scientist",
+      location: "Boston",
+      experience: 6,
+      appliedDaysAgo: 9,
+      src: Rajan,
+      rounds: [
+        { progress: 60, name: "Round 1", description: "Data Analysis Test" },
+        {
+          progress: 85,
+          name: "Round 2",
+          description: "ML Concepts Discussion",
+        },
+      ],
+      skillStack: 52,
+      rank: 5,
+    },
+    {
+      name: "Sophia",
+      title: "Content Strategist",
+      location: "Denver",
+      experience: 5,
+      appliedDaysAgo: 11,
+      src: Rajan,
+      rounds: [
+        { progress: 70, name: "Round 1", description: "Writing Test" },
+        { progress: 90, name: "Round 2", description: "Strategy Review" },
+      ],
+      skillStack: 45,
+      rank: 9,
+    },
+    {
+      name: "Arjun",
+      title: "Cybersecurity Specialist",
+      location: "Washington",
+      experience: 8,
+      appliedDaysAgo: 4,
+      src: Rajan,
+      rounds: [
+        {
+          progress: 80,
+          name: "Round 1",
+          description: "Vulnerability Assessment",
+        },
+        { progress: 100, name: "Round 2", description: "Risk Management" },
+      ],
+      skillStack: 57,
+      rank: 4,
+    },
+    {
+      name: "Maya",
+      title: "Cloud Architect",
+      location: "Phoenix",
+      experience: 9,
+      appliedDaysAgo: 6,
+      src: Rajan,
+      rounds: [
+        {
+          progress: 85,
+          name: "Round 1",
+          description: "Cloud Architecture Test",
+        },
+        { progress: 95, name: "Round 2", description: "System Design Review" },
+      ],
+      skillStack: 65,
+      rank: 1,
+    },
+    {
+      name: "Zara",
+      title: "Marketing Analyst",
+      location: "San Diego",
+      experience: 4,
+      appliedDaysAgo: 13,
+      src: Rajan,
+      rounds: [
+        { progress: 60, name: "Round 1", description: "Data Analysis" },
+        { progress: 80, name: "Round 2", description: "Marketing Strategy" },
+      ],
+      skillStack: 44,
+      rank: 6,
+    },
   ];
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -208,7 +388,7 @@ const ApplicantResult = () => {
 
       {/* Company Description */}
       <div className="h-[45%] px-12 relative mt-[2%]">
-        <div className="relative h-[100%]">
+        <div className="relative h-[90px]">
           <div className="h-[70%] w-full bg-gradient-to-b from-[#FEC4CB] via-[#F4C8EF] to-[#F4C8EF] rounded-[20px]"></div>
           <img
             src={Company}
@@ -259,7 +439,7 @@ const ApplicantResult = () => {
                     style={{
                       background: `conic-gradient(from -62.75deg at 50.01% 48.12%, #5C9AFF -58.82deg, #5C9AFF 0.91deg, #3973E8 52.72deg, #2760DD 100.52deg, #1E57D7 168.35deg, #3873E1 210.22deg, #5290EB 251.44deg, #5C9AFF 301.18deg, #5C9AFF 360.91deg)`,
                       transform: "translateY(10%)",
-                      opacity: 0.4,
+                      opacity: 0.5,
                     }}
                   />
                 </div>
@@ -294,7 +474,7 @@ const ApplicantResult = () => {
       </div>
 
       {/* Card Section */}
-      <div className="mt-[13rem] bg-[#F2F2F2]">
+      <div className="mt-[4rem] bg-[#F2F2F2]">
         <div className=" mx-[30px] ">
           <div className="h-full flex flex-wrap justify-center gap-[30px]  ">
             {currentCandidates.map((candidate, index) => (
@@ -312,7 +492,7 @@ const ApplicantResult = () => {
       </div>
 
       {/* Pagination */}
-      <div className="h-[10%] flex items-center bg-[#F2F2F2] py-3">
+      <div className="h-[10%] flex items-center bg-[#F2F2F2] py-8">
         <div className="ml-10 w-[50px] fixed bottom-5">
           <img src={hamburgerBar} alt="Hamburger menu" />
         </div>

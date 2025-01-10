@@ -98,11 +98,11 @@ const Card = ({
         <div className="absolute inset-0 overflow-hidden">
           <div
             ref={gradientRef}
-            className="absolute inset-[-300%] origin-center"
+            className="absolute inset-[-630%] origin-center"
             style={{
               background: `conic-gradient(from -62.75deg at 50.01% 48.12%, #5C9AFF -58.82deg, #5C9AFF 0.91deg, #3973E8 52.72deg, #2760DD 100.52deg, #1E57D7 168.35deg, #3873E1 210.22deg, #5290EB 251.44deg, #5C9AFF 301.18deg, #5C9AFF 360.91deg)`,
               transform: "translateY(10%)",
-              opacity: 0.4, // Adjust this value to fine-tune opacity
+              opacity: 0.5, // Adjust this value to fine-tune opacity
             }}
           />
         </div>
@@ -218,7 +218,7 @@ const Card = ({
             </div>
           </div>
           <div className="flex justify-center mt-[9px]">
-            <p className="font-semibold text-[#0072DC] text-[12px] border-2 border-[#0072DC] rounded-full h-[28px] w-[86px] flex items-center justify-center cursor-pointer">
+            <p className="font-semibold text-[#0072DC] text-[12px] border-2 border-[#0072DC] rounded-full h-[28px] w-[86px] flex items-center justify-center cursor-pointer shadow-[0px_0px_4px_0px_#00000040]">
               View more
             </p>
           </div>
