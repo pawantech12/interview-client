@@ -201,14 +201,14 @@ const Card = ({
                     </p>
                   </div>
                 </div>
-                <div className="flex flex-col mt-2 justify-center">
-                  <p className="bg-skill-gradient bg-clip-text text-transparent mb-[20%] ml-[23%]">
+                <div className="flex flex-col mt-2 justify-between items-center">
+                  <p className="bg-skill-gradient bg-clip-text text-transparent ">
                     Score
                   </p>
                   <p className="text-[40px] font-semibold bg-skill-gradient bg-clip-text text-transparent">
-                    {candidate.skillStack}%
+                    {candidate.skillStack}
                   </p>
-                  <div className="justify-center flex items-end h-full">
+                  <div className="justify-center flex items-end ">
                     <p className="font-semibold bg-skill-gradient bg-clip-text text-transparent">
                       Skill Stack
                     </p>

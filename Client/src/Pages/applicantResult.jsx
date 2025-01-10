@@ -10,6 +10,18 @@ import Manjeet from "../assets/manjeet.jpeg";
 import Priyansh from "../assets/priyansh.jpg";
 import Bieden from "../assets/bieden.jpeg";
 import Joe from "../assets/joe.jpeg";
+import sundar from "../assets/sundar pitchai.jpg";
+import edwin from "../assets/edwin.jpg";
+import joseph from "../assets/joseph.jpg";
+import raj from "../assets/raj.jpg";
+import boy1 from "../assets/boy1.jpg";
+import boy2 from "../assets/boy2.jpg";
+import boy3 from "../assets/boy3.jpg";
+import boy4 from "../assets/boy4.jpg";
+import girl1 from "../assets/girl1.jpg";
+import girl2 from "../assets/girl2.jpg";
+import girl3 from "../assets/girl3.jpg";
+import girl4 from "../assets/girl4.jpg";
 import Rajan from "../assets/rajan.jpg";
 import hamburgerBar from "../assets/hamburgerBar.png";
 import Star from "../assets/star.svg";
@@ -52,7 +64,7 @@ const ApplicantResult = () => {
       rank: 10,
     },
     {
-      name: "Debaleena",
+      name: "Ayushi",
       title: "UI/UX designer",
       location: "Austin",
       experience: 8,
@@ -94,7 +106,7 @@ const ApplicantResult = () => {
       rank: 2,
     },
     {
-      name: "Joe",
+      name: "Rahul",
       title: "Visual Designer",
       location: "Seattle",
       experience: 4,
@@ -108,7 +120,7 @@ const ApplicantResult = () => {
       rank: 4,
     },
     {
-      name: "Bieden",
+      name: "Rohan",
       title: "Digital Designer",
       location: "Bieden",
       experience: 6,
@@ -141,7 +153,7 @@ const ApplicantResult = () => {
       location: "New York",
       experience: 5,
       appliedDaysAgo: 10,
-      src: Rajan,
+      src: raj,
       rounds: [
         { progress: 60, name: "Round 1", description: "Technical" },
         { progress: 80, name: "Round 2", description: "HR Interview" },
@@ -155,7 +167,7 @@ const ApplicantResult = () => {
       location: "San Francisco",
       experience: 7,
       appliedDaysAgo: 3,
-      src: Rajan,
+      src: sundar,
       rounds: [
         { progress: 50, name: "Round 1", description: "Technical Coding" },
         { progress: 90, name: "Round 2", description: "System Design" },
@@ -164,12 +176,12 @@ const ApplicantResult = () => {
       rank: 3,
     },
     {
-      name: "Samantha",
+      name: "Ranveer",
       title: "UI/UX Designer",
       location: "Chicago",
       experience: 6,
       appliedDaysAgo: 8,
-      src: Rajan,
+      src: edwin,
       rounds: [
         { progress: 70, name: "Round 1", description: "Portfolio Review" },
         { progress: 100, name: "Round 2", description: "Design Challenge" },
@@ -178,12 +190,12 @@ const ApplicantResult = () => {
       rank: 7,
     },
     {
-      name: "Rahul",
+      name: "Raju",
       title: "Full Stack Developer",
       location: "Austin",
       experience: 4,
       appliedDaysAgo: 5,
-      src: Rajan,
+      src: joseph,
       rounds: [
         { progress: 60, name: "Round 1", description: "Coding Assessment" },
         { progress: 85, name: "Round 2", description: "Team Interview" },
@@ -192,12 +204,12 @@ const ApplicantResult = () => {
       rank: 5,
     },
     {
-      name: "Elena",
+      name: "Ravi",
       title: "Product Manager",
       location: "Los Angeles",
       experience: 10,
       appliedDaysAgo: 12,
-      src: Rajan,
+      src: boy1,
       rounds: [
         { progress: 70, name: "Round 1", description: "Behavioral Interview" },
         { progress: 100, name: "Round 2", description: "Panel Discussion" },
@@ -206,12 +218,12 @@ const ApplicantResult = () => {
       rank: 4,
     },
     {
-      name: "John",
+      name: "Ranveer",
       title: "DevOps Engineer",
       location: "Seattle",
       experience: 9,
       appliedDaysAgo: 7,
-      src: Rajan,
+      src: boy2,
       rounds: [
         { progress: 80, name: "Round 1", description: "Technical" },
         { progress: 100, name: "Round 2", description: "Final Interview" },
@@ -225,7 +237,7 @@ const ApplicantResult = () => {
       location: "Dallas",
       experience: 3,
       appliedDaysAgo: 14,
-      src: Rajan,
+      src: girl1,
       rounds: [
         { progress: 50, name: "Round 1", description: "Online Test" },
         { progress: 75, name: "Round 2", description: "Technical Interview" },
@@ -239,7 +251,7 @@ const ApplicantResult = () => {
       location: "Boston",
       experience: 6,
       appliedDaysAgo: 9,
-      src: Rajan,
+      src: boy3,
       rounds: [
         { progress: 60, name: "Round 1", description: "Data Analysis Test" },
         {
@@ -252,12 +264,12 @@ const ApplicantResult = () => {
       rank: 5,
     },
     {
-      name: "Sophia",
+      name: "Roshni",
       title: "Content Strategist",
       location: "Denver",
       experience: 5,
       appliedDaysAgo: 11,
-      src: Rajan,
+      src: girl2,
       rounds: [
         { progress: 70, name: "Round 1", description: "Writing Test" },
         { progress: 90, name: "Round 2", description: "Strategy Review" },
@@ -271,7 +283,7 @@ const ApplicantResult = () => {
       location: "Washington",
       experience: 8,
       appliedDaysAgo: 4,
-      src: Rajan,
+      src: boy4,
       rounds: [
         {
           progress: 80,
@@ -289,7 +301,7 @@ const ApplicantResult = () => {
       location: "Phoenix",
       experience: 9,
       appliedDaysAgo: 6,
-      src: Rajan,
+      src: girl3,
       rounds: [
         {
           progress: 85,
@@ -302,12 +314,12 @@ const ApplicantResult = () => {
       rank: 1,
     },
     {
-      name: "Zara",
+      name: "Meenakshi",
       title: "Marketing Analyst",
       location: "San Diego",
       experience: 4,
       appliedDaysAgo: 13,
-      src: Rajan,
+      src: girl4,
       rounds: [
         { progress: 60, name: "Round 1", description: "Data Analysis" },
         { progress: 80, name: "Round 2", description: "Marketing Strategy" },
@@ -439,7 +451,6 @@ const ApplicantResult = () => {
                     style={{
                       background: `conic-gradient(from -62.75deg at 50.01% 48.12%, #5C9AFF -58.82deg, #5C9AFF 0.91deg, #3973E8 52.72deg, #2760DD 100.52deg, #1E57D7 168.35deg, #3873E1 210.22deg, #5290EB 251.44deg, #5C9AFF 301.18deg, #5C9AFF 360.91deg)`,
                       transform: "translateY(10%)",
-                      opacity: 0.5,
                     }}
                   />
                 </div>
