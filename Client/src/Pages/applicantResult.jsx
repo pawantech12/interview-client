@@ -387,7 +387,7 @@ const ApplicantResult = () => {
       <Navbar assistant={Liyla} onLiylaActivate={toggleLiylaStatus} />
 
       {/* Company Description */}
-      <div className="h-[45%] px-12 relative mt-[2%]">
+      <div className="h-[200px] px-12 relative mt-[2%]">
         <div className="relative h-[90px]">
           <div className="h-[70%] w-full bg-gradient-to-b from-[#FEC4CB] via-[#F4C8EF] to-[#F4C8EF] rounded-[20px]"></div>
           <img
