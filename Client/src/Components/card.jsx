@@ -21,7 +21,7 @@ const Card = ({
 
       const rotateGradient = () => {
         if (gradientRef.current) {
-          rotationRef.current = (rotationRef.current - 8) % 360;
+          rotationRef.current = (rotationRef.current - 5) % 360;
           gradientRef.current.style.transform = `translateY(10%) rotate(${rotationRef.current}deg)`;
         }
       };
