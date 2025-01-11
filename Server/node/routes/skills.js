@@ -1,6 +1,6 @@
 import express from "express";
 const router = express.Router();
-import Skill from "../Models/skills.js";
+import Skill from "../Models/skills";
 // Routes
 // Create a new skill
 router.post("/upload_skills", async (req, res) => {

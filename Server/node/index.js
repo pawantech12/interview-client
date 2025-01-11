@@ -1,10 +1,10 @@
 import express from "express";
-import interviewRoutes from "./routes/routes.js";
-import alljobspostedRoute from "./routes/alljobsposted.js";
-import jobapplicationroute from "./routes/jobapplicationroutes.js";
-import skills from "./routes/skills.js";
+import interviewRoutes from "./routes/routes";
+import alljobspostedRoute from "./routes/alljobsposted";
+import jobapplicationroute from "./routes/jobapplicationroutes";
+import skills from "./routes/skills";
 import cors from "cors";
-import connectDB from "./db/db.connect.js";
+import connectDB from "./db/db.connect";
 
 const app = express();
 
@@ -37,7 +37,7 @@ app.get("/api/images", (req, res) => {
     res.json(imageFiles);
   });
 });
-import skillsGeneratorRoute from "./routes/skillsgeneratorroute.js";
+import skillsGeneratorRoute from "./routes/skillsgeneratorroute";
 
 app.use("/api", skillsGeneratorRoute);
 
