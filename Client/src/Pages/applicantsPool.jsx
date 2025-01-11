@@ -328,8 +328,11 @@ const ApplicantsPool = () => {
     return cityList[randomIndex].city;
   };
   const getRandomImage = () => {
-    const randomIndex = Math.floor(Math.random() * images.length);
-    return images[randomIndex];
+    if (Array.isArray(images) && images.length > 0) {
+      const randomIndex = Math.floor(Math.random() * images.length);
+      return images[randomIndex];
+    }
+    return null; // or a fallback image URL
   };
 
   useEffect(() => {
@@ -343,7 +346,7 @@ const ApplicantsPool = () => {
       img: getRandomImage(),
     }));
     setCandidateData(dataWithRandomValues);
-  }, [currentCandidates]);
+  }, [currentCandidates, images]);
   const handleCheckboxChange = (idx) => {
     setSelectedCandidates((prevSelected) => {
       if (prevSelected.includes(idx)) {
