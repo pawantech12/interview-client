@@ -7542,11 +7542,9 @@ const nameSkill = [
   },
 ];
 const keySkill = [
-  "User Research",
-  "Figma",
-  "Framer",
-  "Photo Shop",
-  "UX",
-  "Information Architecture",
+  "Natural Language Processing",
+  "Machine Learning",
+  "Deep Learning",
+  "Python",
 ];
 export default { nameSkill, keySkill };

@@ -523,17 +523,9 @@ const ApplicantsPool = () => {
                   </div>
                   <div className="">
                     <h2 className="text-[24px] font-bold text-[#2D2D2D]">
-                      {jobDetails.jobTitle}
+                      AI Engineer
                     </h2>
-                    <p className="flex text-[16px] font-medium text-[#787878]">
-                      Meta |
-                      <img
-                        className="h-[14px] w-[14px] mt-2 ml-1 mr-1"
-                        src={Location}
-                        alt=""
-                      />{" "}
-                      Noida
-                    </p>
+
                     <div className="flex items-center">
                       <img
                         className="h-[18px] w-[18px]"
@@ -559,7 +551,7 @@ const ApplicantsPool = () => {
                         alt=""
                       />
                       <span className="text-[16px] font-medium text-[#747474]">
-                        3 - 5 LPA
+                        6 - 7 LPA
                       </span>
                     </div>
                   </div>
@@ -575,7 +567,7 @@ const ApplicantsPool = () => {
               </div>
             </div>
             <div className="ml-4">
-              <h3 className="text-[16px] font-medium">Key Skills:</h3>
+              <h3 className="text-[16px] font-medium">Main Skills:</h3>
               <div className="flex flex-wrap mt-2 max-sm:gap-2">
                 {keySkill.map((skill, index) => (
                   <span
@@ -605,7 +597,9 @@ const ApplicantsPool = () => {
                   For the entire period
                 </p>
               </div>
-              <p className="text-[36px] font-semibold mr-2">1200+</p>
+              <p className="text-[36px] font-semibold mr-2">
+                {candidates.length}
+              </p>
             </div>
           </div>
         </div>

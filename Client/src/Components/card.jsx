@@ -104,6 +104,9 @@ const Card = ({
             style={{
               background: `conic-gradient(from -62.75deg at 50.01% 48.12%, #5C9AFF -58.82deg, #5C9AFF 0.91deg, #3973E8 52.72deg, #2760DD 100.52deg, #1E57D7 168.35deg, #3873E1 210.22deg, #5290EB 251.44deg, #5C9AFF 301.18deg, #5C9AFF 360.91deg)`,
               opacity: 0.8, // Adjust this value to fine-tune opacity
+              maskImage:
+                "radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,1))",
+              maskSize: "cover",
             }}
           />
         </div>
@@ -128,8 +131,9 @@ const Card = ({
                   alt={candidate.name}
                   className="w-full h-full object-cover rounded-full shadow-inner grayscale-0"
                   style={{
-                    maskImage:
-                      "radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,1))",
+                    maskImage: isGradientVisible
+                      ? "radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,1))"
+                      : "none", // Mask is applied when the gradient is visible
                   }}
                 />
               </figure>
