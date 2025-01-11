@@ -328,11 +328,8 @@ const ApplicantsPool = () => {
     return cityList[randomIndex].city;
   };
   const getRandomImage = () => {
-    if (Array.isArray(images) && images.length > 0) {
-      const randomIndex = Math.floor(Math.random() * images.length);
-      return images[randomIndex];
-    }
-    return null; // or a fallback image URL
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
   };
 
   useEffect(() => {
