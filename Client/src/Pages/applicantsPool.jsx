@@ -249,6 +249,8 @@ const ApplicantsPool = () => {
   const [candidateData, setCandidateData] = useState();
   const [skills, setSkills] = useState(keySkill);
 
+  const [images, setImages] = useState();
+
   const { jobId } = useParams();
   const generateRandomDate = () => {
     const start = new Date(2020, 0, 1); // Start date: January 1, 2020
@@ -299,6 +301,18 @@ const ApplicantsPool = () => {
       }
     };
     fetchSkills();
+
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/api/images");
+
+        console.log(response);
+        setImages(response.data);
+      } catch (error) {
+        console.log("error:", error);
+      }
+    };
+    fetchImages();
   }, [jobId, jobDetails]);
 
   const pageCount = Math.ceil(candidates.length / 10);
@@ -311,6 +325,13 @@ const ApplicantsPool = () => {
     const randomIndex = Math.floor(Math.random() * cityList.length);
     return cityList[randomIndex].city;
   };
+  const getRandomImage = () => {
+    if (Array.isArray(images) && images.length > 0) {
+      const randomIndex = Math.floor(Math.random() * images.length);
+      return `../../public/images/${images[randomIndex]}`; // Assuming images are served from the 'public/images' folder
+    }
+    return null; // or a fallback image URL
+  };
 
   useEffect(() => {
     // Generate random data for each candidate once
@@ -320,6 +341,7 @@ const ApplicantsPool = () => {
       randomExp: generateRandomExperience(),
       randomScore: generateRandomScore(),
       randomCity: getRandomCity(),
+      img: getRandomImage(),
     }));
     setCandidateData(dataWithRandomValues);
   }, [currentCandidates]);
@@ -881,7 +903,7 @@ const ApplicantsPool = () => {
 
                             <td className="z-20 flex items-center">
                               <img
-                                src={boy1}
+                                src={candidate.img}
                                 alt="Profile"
                                 className="h-[42px] w-[42px] rounded-full"
                               />
