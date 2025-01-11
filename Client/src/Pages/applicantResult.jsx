@@ -3,14 +3,7 @@ import Liyla from "../assets/Type=Layila.svg";
 import Company from "../assets/company logo.png";
 import Location from "../assets/location.svg";
 import Briefcase from "../assets/briefcase.svg";
-import Sanjay from "../assets/sanjay.jpeg";
-import Mukesh from "../assets/mukesh.jpeg";
-import Debaleena from "../assets/debaleena.jpg";
-import Manjeet from "../assets/manjeet.jpeg";
-import Priyansh from "../assets/priyansh.jpg";
-import Bieden from "../assets/bieden.jpeg";
-import Joe from "../assets/joe.jpeg";
-import Rajan from "../assets/rajan.jpg";
+
 import hamburgerBar from "../assets/hamburgerBar.png";
 import Star from "../assets/star.svg";
 import Send from "../assets/whiteSend.svg";
@@ -22,6 +15,15 @@ import ReactPaginate from "react-paginate";
 import { useConversation } from "@11labs/react";
 import axios from "axios";
 
+import img1 from "../../public/images/0147e290cc17ffa543232af3edabc415.jpeg";
+import img2 from "../../public/images/015481d454b839929d875b8cf1eb9ec3.jpeg";
+import img3 from "../../public/images/05172b8fac0c462167f3e83dd9f7c40a.jpeg";
+import img4 from "../../public/images/0ab0515d62a0fe3920db471cc3d13116.jpeg";
+import img5 from "../../public/images/0b77dbf49f877f94f4474f753a32c57b.jpeg";
+import img6 from "../../public/images/0b8ecce9bb773ad090ac442a96415e12.jpeg";
+import img7 from "../../public/images/0d0bc64b941550b91bb8931dd64f8446.jpeg";
+import img8 from "../../public/images/0f8d45f16836efe6638ab4c735f49d71.jpeg";
+
 const ApplicantResult = () => {
   const candidates = [
     {
@@ -30,6 +32,7 @@ const ApplicantResult = () => {
       location: "India",
       experience: 12,
       appliedDaysAgo: 15,
+      src: img1,
       rounds: [
         { progress: 85, name: "Round 1", description: "Technical" },
         { progress: 95, name: "Round 2", description: "HR Interview" },
@@ -43,6 +46,7 @@ const ApplicantResult = () => {
       location: "America",
       experience: 6,
       appliedDaysAgo: 13,
+      src: img2,
       rounds: [
         { progress: 20, name: "Round 1", description: "Design Task" },
         { progress: 35, name: "Round 2", description: "Team Interview" },
@@ -56,6 +60,7 @@ const ApplicantResult = () => {
       location: "Austin",
       experience: 8,
       appliedDaysAgo: 10,
+      src: img3,
       rounds: [
         { progress: 60, name: "Round 1", description: "Portfolio Review" },
         { progress: 90, name: "Round 2", description: "Technical Round" },
@@ -69,6 +74,7 @@ const ApplicantResult = () => {
       location: "Chicago",
       experience: 12,
       appliedDaysAgo: 1,
+      src: img4,
       rounds: [
         { progress: 60, name: "Round 1", description: "Technical" },
         { progress: 75, name: "Round 2", description: "HR Interview" },
@@ -82,6 +88,7 @@ const ApplicantResult = () => {
       location: "Boston",
       experience: 12,
       appliedDaysAgo: 7,
+      src: img5,
       rounds: [
         { progress: 45, name: "Round 1", description: "Research Task" },
         { progress: 88, name: "Round 2", description: "Team Interview" },
@@ -95,6 +102,7 @@ const ApplicantResult = () => {
       location: "Seattle",
       experience: 4,
       appliedDaysAgo: 3,
+      src: img6,
       rounds: [
         { progress: 55, name: "Round 1", description: "Technical" },
         { progress: 90, name: "Round 2", description: "HR Interview" },
@@ -108,6 +116,7 @@ const ApplicantResult = () => {
       location: "Bieden",
       experience: 6,
       appliedDaysAgo: 4,
+      src: img7,
       rounds: [
         { progress: 35, name: "Round 1", description: "Portfolio Review" },
         { progress: 75, name: "Round 2", description: "Team Interview" },
@@ -121,6 +130,7 @@ const ApplicantResult = () => {
       location: "Miami",
       experience: 8,
       appliedDaysAgo: 6,
+      src: img8,
       rounds: [
         { progress: 70, name: "Round 1", description: "Technical" },
         { progress: 100, name: "Round 2", description: "Final Round" },
@@ -141,42 +151,11 @@ const ApplicantResult = () => {
   const pageCount = Math.ceil(candidates.length / candidatesPerPage);
   const [candidateData, setCandidateData] = useState(candidates);
 
-  const currentCandidates = candidateData.slice(
+  const currentCandidates = candidates.slice(
     currentPage * candidatesPerPage,
     (currentPage + 1) * candidatesPerPage
   );
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await axios.get(
-          "https://interview-client-4r6g.onrender.com/api/images"
-        );
 
-        console.log(response);
-        setImages(response.data);
-      } catch (error) {
-        console.log("error:", error);
-      }
-    };
-    fetchImages();
-  }, []);
-  const getRandomImage = () => {
-    if (Array.isArray(images) && images.length > 0) {
-      const randomIndex = Math.floor(Math.random() * images.length);
-      return images[randomIndex];
-    }
-    return null; // or a fallback image URL
-  };
-
-  useEffect(() => {
-    // Generate random data for each candidate once
-    const dataWithRandomValues = currentCandidates?.map((candidate) => ({
-      ...candidate,
-
-      src: getRandomImage(),
-    }));
-    setCandidateData(dataWithRandomValues);
-  }, [candidateData,images]);
   const handlePageClick = (data) => {
     setCurrentPage(data.selected);
   };
@@ -322,7 +301,7 @@ const ApplicantResult = () => {
           className="h-full flex flex-wrap gap-6"
           style={{ direction: "ltr" }}
         >
-          {candidateData.map((candidate, index) => (
+          {currentCandidates.map((candidate, index) => (
             <Card
               key={index}
               index={index}
