@@ -249,7 +249,7 @@ const ApplicantsPool = () => {
   const [candidateData, setCandidateData] = useState();
   const [skills, setSkills] = useState(keySkill);
 
-  const [images, setImages] = useState();
+  const [images, setImages] = useState([]);
 
   const { jobId } = useParams();
   const generateRandomDate = () => {
