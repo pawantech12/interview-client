@@ -1,6 +1,6 @@
 // routes/jobRoutes.js
 import express from "express";
-import { applyToJob } from "../controllers/jobapplicationcontroller";
+import { applyToJob } from "../controllers/jobapplicationcontroller.js";
 
 const router = express.Router();
 

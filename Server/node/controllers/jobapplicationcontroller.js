@@ -1,6 +1,6 @@
 // controllers/jobController.js
-import JobPosted from "../Models/JobPosted";
-import Applicant from "../Models/Applicant";
+import JobPosted from "../Models/JobPosted.js";
+import Applicant from "../Models/Applicant.js";
 
 // Controller to apply for a job
 export const applyToJob = async (req, res) => {

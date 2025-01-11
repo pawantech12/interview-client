@@ -1,9 +1,9 @@
-import Candidate from "../Models/candidate";
+import Candidate from "../Models/candidate.js";
 import fs from "fs";
 import path from "path";
 import OpenAI from "openai";
 import dotenv from "dotenv";
-import Applicant from "../Models/Applicant";
+import Applicant from "../Models/Applicant.js";
 dotenv.config();
 
 const test = () => {
