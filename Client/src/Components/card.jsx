@@ -132,7 +132,7 @@ const Card = ({
             >
               <figure className="w-[48px] h-[48px]">
                 <img
-                  src={`../images/${candidate.src}`}
+                  src={candidate.src}
                   alt={candidate.name}
                   className="w-full h-full object-cover rounded-full shadow-inner grayscale-0"
                   style={{
