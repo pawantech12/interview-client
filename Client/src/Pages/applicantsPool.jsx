@@ -247,6 +247,7 @@ const ApplicantsPool = () => {
   const [jobDetails, setJobDetails] = useState({});
   const [candidates, setCandidate] = useState(nameSkill);
   const [candidateData, setCandidateData] = useState();
+  const [filteredCandidates, setFilteredCandidates] = useState();
   const [skills, setSkills] = useState(keySkill);
 
   const [images, setImages] = useState([]);
@@ -271,6 +272,18 @@ const ApplicantsPool = () => {
     const years = Math.floor(Math.random() * 8); // Random number from 0 to 7
     return `${years} ${years === 1 ? "year" : "years"}`; // Pluralize 'year'
   };
+
+  const scoreData = [
+    { scoreRange: "201-300", salary: "4,00,000", position: "Fresher" },
+    { scoreRange: "301-400", salary: "4,50,000", position: "Fresher+" },
+    { scoreRange: "401-500", salary: "5,00,000", position: "Junior" },
+    { scoreRange: "501-600", salary: "5,40,000", position: "Junior+" },
+    { scoreRange: "601-700", salary: "6,00,000", position: "Mid" },
+    { scoreRange: "701-800", salary: "7,00,000", position: "Mid+" },
+    { scoreRange: "801-900", salary: "8,00,000", position: "Experienced" },
+    { scoreRange: "900+", salary: "9,00,000", position: "Experienced+" },
+  ];
+
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
@@ -345,7 +358,8 @@ const ApplicantsPool = () => {
       randomCity: getRandomCity(),
       img: getRandomImage(),
     }));
-    setCandidateData(dataWithRandomValues);
+    setCandidateData(dataWithRandomValues); // This keeps the original data
+    setFilteredCandidates(dataWithRandomValues);
   }, [currentCandidates, images]);
   const handleCheckboxChange = (idx) => {
     setSelectedCandidates((prevSelected) => {
@@ -363,10 +377,10 @@ const ApplicantsPool = () => {
 
     // Filter candidates based on the selected range
     const filteredCandidates = candidateData.filter((candidate) => {
-      if (range === "gold") return candidate.randomScore >= 900;
-      if (range === "silver")
+      if (range === "900+") return candidate.randomScore >= 900;
+      if (range === "801-900")
         return candidate.randomScore >= 800 && candidate.randomScore < 900;
-      if (range === "bronze")
+      if (range === "701-800")
         return candidate.randomScore >= 700 && candidate.randomScore < 800;
       if (range === "601-700")
         return candidate.randomScore >= 601 && candidate.randomScore < 700;
@@ -381,8 +395,9 @@ const ApplicantsPool = () => {
       return true; // Default case if range doesn't match
     });
 
-    setCandidateData(filteredCandidates);
+    setFilteredCandidates(filteredCandidates); // Update the filtered candidates
   };
+
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible); // Make sure the dropdown becomes visible when hovering over the button
   };
@@ -654,17 +669,17 @@ const ApplicantsPool = () => {
                       {
                         label: "Gold (900+)",
                         tooltip: "900 and above",
-                        type: "gold",
+                        type: "900+",
                       },
                       {
                         label: "Silver (800+)",
                         tooltip: "800 to 899",
-                        type: "silver",
+                        type: "801-900",
                       },
                       {
                         label: "Bronze (700+)",
                         tooltip: "700 to 799",
-                        type: "bronze",
+                        type: "701-800",
                       },
                       {
                         label: "601-700",
@@ -691,58 +706,65 @@ const ApplicantsPool = () => {
                         tooltip: "201 to 300",
                         type: "201-300",
                       },
-                    ].map((item, index) => (
-                      <>
-                        <li
-                          key={index}
-                          className="relative py-2 px-4 hover:bg-gray-100 cursor-pointer group"
-                          onClick={() => handleMenuClick(item.type)}
-                        >
-                          <span
-                            className={`text-[16px] ${
-                              item.type === "gold"
-                                ? "text-[#856220]"
-                                : item.type === "silver"
-                                ? "text-[#3A3A3A]"
-                                : item.type === "bronze"
-                                ? "text-[#BC6554]"
-                                : "text-[#1E1E1E]"
-                            }`}
+                    ].map((item, index) => {
+                      const scoreDetails = scoreData.find(
+                        (data) => data.scoreRange === item.type
+                      );
+                      console.log(scoreDetails);
+
+                      return (
+                        <>
+                          <li
+                            key={index}
+                            className="relative py-2 px-4 hover:bg-gray-100 cursor-pointer group"
+                            onClick={() => handleMenuClick(item.type)}
                           >
-                            {item.label}
-                          </span>
-                          <div
-                            className="absolute top-1/2 left-[240px] -translate-y-1/2 bg-white border shadow-[0px_0px_8px_0px_#00000066] rounded-md p-3 w-[233px] hidden group-hover:block max-[536px]:left-10 max-[536px]:top-40 z-10
+                            <span
+                              className={`text-[16px] ${
+                                item.type === "gold"
+                                  ? "text-[#856220]"
+                                  : item.type === "silver"
+                                  ? "text-[#3A3A3A]"
+                                  : item.type === "bronze"
+                                  ? "text-[#BC6554]"
+                                  : "text-[#1E1E1E]"
+                              }`}
+                            >
+                              {item.label}
+                            </span>
+                            <div
+                              className="absolute top-1/2 left-[240px] -translate-y-1/2 bg-white border shadow-[0px_0px_8px_0px_#00000066] rounded-md p-3 w-[233px] hidden group-hover:block max-[536px]:left-10 max-[536px]:top-40 z-10
                           "
-                          >
-                            {/* Caret */}
-                            <div className="absolute top-1/2 left-[-10px] -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[10px] border-r-white  max-[536px]:left-1/2 max-[536px]:-top-2 max-[536px]:-rotate-[27deg]"></div>
-                            {/* Tooltip Content */}
-                            <div>
-                              <div className="bg-[#E6F5F5] p-2 flex flex-col gap-[6px] rounded-lg">
-                                <p className="text-[#B9B9B9] text-[12px]">
-                                  Estimated Annual Salary
-                                </p>
-                                <h4 className="text-[24px] font-bold">
-                                  6,25,000
-                                </h4>
-                              </div>
-                              <div className="p-1 flex flex-col gap-2">
-                                <span className="text-[#6F6F6F] text-[12px]">
-                                  Position best suited for
-                                </span>
-                                <ul>
-                                  <li className="uppercase w-fit py-1 px-2 bg-tooltip-gradient-1 rounded-full text-white text-[12px]">
-                                    junior
-                                  </li>
-                                </ul>
+                            >
+                              {/* Caret */}
+                              <div className="absolute top-1/2 left-[-10px] -translate-y-1/2 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-r-[10px] border-r-white  max-[536px]:left-1/2 max-[536px]:-top-2 max-[536px]:-rotate-[27deg]"></div>
+                              {/* Tooltip Content */}
+                              <div>
+                                <div className="bg-[#E6F5F5] p-2 flex flex-col gap-[6px] rounded-lg">
+                                  <p className="text-[#B9B9B9] text-[12px]">
+                                    Estimated Annual Salary
+                                  </p>
+                                  <h4 className="text-[24px] font-bold">
+                                    {scoreDetails.salary}
+                                  </h4>
+                                </div>
+                                <div className="p-1 flex flex-col gap-2">
+                                  <span className="text-[#6F6F6F] text-[12px]">
+                                    Position best suited for
+                                  </span>
+                                  <ul>
+                                    <li className="uppercase w-fit py-1 px-2 bg-tooltip-gradient-1 rounded-full text-white text-[12px]">
+                                      {scoreDetails.position}
+                                    </li>
+                                  </ul>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                        </li>
-                        <hr />
-                      </>
-                    ))}
+                          </li>
+                          <hr />
+                        </>
+                      );
+                    })}
                   </ul>
                 )}
               </div>
@@ -824,8 +846,8 @@ const ApplicantsPool = () => {
               </thead>
 
               <tbody className="min-w-[1200px] overflow-y-auto bg-[#F1F4F8] mt-[12px] scrollbar-left h-[500px] min-h-[500px]">
-                {candidateData?.length > 0 ? (
-                  candidateData.map((candidate, idx) => {
+                {filteredCandidates?.length > 0 ? (
+                  filteredCandidates.map((candidate, idx) => {
                     return (
                       <React.Fragment key={idx}>
                         <tr className="flex items-center gap-5 ps-5 space-y-3">
