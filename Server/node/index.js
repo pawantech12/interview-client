@@ -1,5 +1,5 @@
 import express from "express";
-import interviewRoutes from "./routes/routes.js";
+import interviewRoutes from "./routes/interviewroutes.js";
 import alljobspostedRoute from "./routes/alljobsposted.js";
 import jobapplicationroute from "./routes/jobapplicationroutes.js";
 import skills from "./routes/skills.js";
