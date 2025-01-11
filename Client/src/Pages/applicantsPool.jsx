@@ -304,7 +304,9 @@ const ApplicantsPool = () => {
 
     const fetchImages = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/images");
+        const response = await axios.get(
+          "https://interview-client-4r6g.onrender.com/api/images"
+        );
 
         console.log(response);
         setImages(response.data);
