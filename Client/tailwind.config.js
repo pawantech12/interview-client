@@ -24,6 +24,10 @@ export default {
           "radial-gradient(circle at top left, #241C70 0%, #194EA6 16%, #188AE6 27%, #0AA9CA 33%, #8F48F8 49%, #743DD6 63%, #493BC2 71%, #383084 83%)",
         "lyla-gradient":
           "linear-gradient(318.5deg, #5C9AFF 5.96%, #154DD1 101.93%)",
+        "total-cost-gradient":
+          "radial-gradient(48.98% 381.78% at 51.02% 52.52%, #D9FFEE 0%, #E3FFE3 44.4%, #FFFFFF 100%)",
+        "tooltip-gradient-1":
+          "linear-gradient(318.5deg, #D388FF 5.96%, #4B94F7 95.49%);",
       },
       animation: {
         blink: "blink 1.5s infinite",
@@ -38,6 +42,10 @@ export default {
           "0%": { transform: "translateY(100%)", opacity: 0 },
           "100%": { transform: "translateY(0)", opacity: 1 },
         },
+      },
+      gridTemplateColumns: {
+        "custom-7-candidate": "0.3fr 0.7fr 0.5fr 0.5fr 0.5fr 1fr 0.8fr",
+        "custom-8-candidate": "0.3fr 0.7fr 0.5fr 0.5fr 0.5fr 0.5fr 1fr 0.8fr",
       },
     },
   },

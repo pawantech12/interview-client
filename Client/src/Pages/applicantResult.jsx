@@ -3,27 +3,14 @@ import Liyla from "../assets/Type=Layila.svg";
 import Company from "../assets/company logo.png";
 import Location from "../assets/location.svg";
 import Briefcase from "../assets/briefcase.svg";
-
-import boy1 from "../assets/boy1.jpg";
-import boy2 from "../assets/boy2.jpg";
-import boy3 from "../assets/boy3.jpg";
-import boy4 from "../assets/boy4.jpg";
-import boy5 from "../assets/boy5.jpg";
-import boy6 from "../assets/boy6.jpg";
-import boy7 from "../assets/boy7.jpg";
-import boy8 from "../assets/boy8.jpg";
-import boy9 from "../assets/boy9.jpg";
-import boy10 from "../assets/boy10.jpg";
-import boy11 from "../assets/boy11.jpg";
-import boy12 from "../assets/boy12.jpg";
-import boy13 from "../assets/boy13.jpg";
-import girl1 from "../assets/girl1.jpg";
-import girl2 from "../assets/girl2.jpg";
-import girl3 from "../assets/girl3.jpg";
-import girl4 from "../assets/girl4.jpg";
-import girl5 from "../assets/girl5.jpg";
-import girl6 from "../assets/girl6.jpg";
-import Rajan from "../assets/boy14.jpg";
+import Sanjay from "../assets/sanjay.jpeg";
+import Mukesh from "../assets/mukesh.jpeg";
+import Debaleena from "../assets/debaleena.jpg";
+import Manjeet from "../assets/manjeet.jpeg";
+import Priyansh from "../assets/priyansh.jpg";
+import Bieden from "../assets/bieden.jpeg";
+import Joe from "../assets/joe.jpeg";
+import Rajan from "../assets/rajan.jpg";
 import hamburgerBar from "../assets/hamburgerBar.png";
 import Star from "../assets/star.svg";
 import Send from "../assets/whiteSend.svg";
@@ -42,7 +29,7 @@ const ApplicantResult = () => {
       location: "India",
       experience: 12,
       appliedDaysAgo: 15,
-      src: boy5,
+      src: Sanjay,
       rounds: [
         { progress: 85, name: "Round 1", description: "Technical" },
         { progress: 95, name: "Round 2", description: "HR Interview" },
@@ -56,7 +43,7 @@ const ApplicantResult = () => {
       location: "America",
       experience: 6,
       appliedDaysAgo: 13,
-      src: boy6,
+      src: Mukesh,
       rounds: [
         { progress: 20, name: "Round 1", description: "Design Task" },
         { progress: 35, name: "Round 2", description: "Team Interview" },
@@ -65,12 +52,12 @@ const ApplicantResult = () => {
       rank: 10,
     },
     {
-      name: "Ayushi",
+      name: "Debaleena",
       title: "UI/UX designer",
       location: "Austin",
       experience: 8,
       appliedDaysAgo: 10,
-      src: girl5,
+      src: Debaleena,
       rounds: [
         { progress: 60, name: "Round 1", description: "Portfolio Review" },
         { progress: 90, name: "Round 2", description: "Technical Round" },
@@ -84,7 +71,7 @@ const ApplicantResult = () => {
       location: "Chicago",
       experience: 12,
       appliedDaysAgo: 1,
-      src: boy7,
+      src: Manjeet,
       rounds: [
         { progress: 60, name: "Round 1", description: "Technical" },
         { progress: 75, name: "Round 2", description: "HR Interview" },
@@ -98,7 +85,7 @@ const ApplicantResult = () => {
       location: "Boston",
       experience: 12,
       appliedDaysAgo: 7,
-      src: boy8,
+      src: Priyansh,
       rounds: [
         { progress: 45, name: "Round 1", description: "Research Task" },
         { progress: 88, name: "Round 2", description: "Team Interview" },
@@ -107,12 +94,12 @@ const ApplicantResult = () => {
       rank: 2,
     },
     {
-      name: "Rahul",
+      name: "Joe",
       title: "Visual Designer",
       location: "Seattle",
       experience: 4,
       appliedDaysAgo: 3,
-      src: boy9,
+      src: Joe,
       rounds: [
         { progress: 55, name: "Round 1", description: "Technical" },
         { progress: 90, name: "Round 2", description: "HR Interview" },
@@ -121,12 +108,12 @@ const ApplicantResult = () => {
       rank: 4,
     },
     {
-      name: "Rohan",
+      name: "Bieden",
       title: "Digital Designer",
       location: "Bieden",
       experience: 6,
       appliedDaysAgo: 4,
-      src: boy10,
+      src: Bieden,
       rounds: [
         { progress: 35, name: "Round 1", description: "Portfolio Review" },
         { progress: 75, name: "Round 2", description: "Team Interview" },
@@ -146,186 +133,6 @@ const ApplicantResult = () => {
         { progress: 100, name: "Round 2", description: "Final Round" },
       ],
       skillStack: 48,
-      rank: 6,
-    },
-    {
-      name: "Priya",
-      title: "Frontend Developer",
-      location: "New York",
-      experience: 5,
-      appliedDaysAgo: 10,
-      src: girl6,
-      rounds: [
-        { progress: 60, name: "Round 1", description: "Technical" },
-        { progress: 80, name: "Round 2", description: "HR Interview" },
-      ],
-      skillStack: 42,
-      rank: 8,
-    },
-    {
-      name: "Amit",
-      title: "Backend Engineer",
-      location: "San Francisco",
-      experience: 7,
-      appliedDaysAgo: 3,
-      src: boy11,
-      rounds: [
-        { progress: 50, name: "Round 1", description: "Technical Coding" },
-        { progress: 90, name: "Round 2", description: "System Design" },
-      ],
-      skillStack: 55,
-      rank: 3,
-    },
-    {
-      name: "Ranveer",
-      title: "UI/UX Designer",
-      location: "Chicago",
-      experience: 6,
-      appliedDaysAgo: 8,
-      src: boy12,
-      rounds: [
-        { progress: 70, name: "Round 1", description: "Portfolio Review" },
-        { progress: 100, name: "Round 2", description: "Design Challenge" },
-      ],
-      skillStack: 47,
-      rank: 7,
-    },
-    {
-      name: "Raju",
-      title: "Full Stack Developer",
-      location: "Austin",
-      experience: 4,
-      appliedDaysAgo: 5,
-      src: boy13,
-      rounds: [
-        { progress: 60, name: "Round 1", description: "Coding Assessment" },
-        { progress: 85, name: "Round 2", description: "Team Interview" },
-      ],
-      skillStack: 50,
-      rank: 5,
-    },
-    {
-      name: "Ravi",
-      title: "Product Manager",
-      location: "Los Angeles",
-      experience: 10,
-      appliedDaysAgo: 12,
-      src: boy1,
-      rounds: [
-        { progress: 70, name: "Round 1", description: "Behavioral Interview" },
-        { progress: 100, name: "Round 2", description: "Panel Discussion" },
-      ],
-      skillStack: 40,
-      rank: 4,
-    },
-    {
-      name: "Ranveer",
-      title: "DevOps Engineer",
-      location: "Seattle",
-      experience: 9,
-      appliedDaysAgo: 7,
-      src: boy2,
-      rounds: [
-        { progress: 80, name: "Round 1", description: "Technical" },
-        { progress: 100, name: "Round 2", description: "Final Interview" },
-      ],
-      skillStack: 60,
-      rank: 2,
-    },
-    {
-      name: "Meera",
-      title: "Software Engineer",
-      location: "Dallas",
-      experience: 3,
-      appliedDaysAgo: 14,
-      src: girl1,
-      rounds: [
-        { progress: 50, name: "Round 1", description: "Online Test" },
-        { progress: 75, name: "Round 2", description: "Technical Interview" },
-      ],
-      skillStack: 38,
-      rank: 10,
-    },
-    {
-      name: "Vikram",
-      title: "Data Scientist",
-      location: "Boston",
-      experience: 6,
-      appliedDaysAgo: 9,
-      src: boy3,
-      rounds: [
-        { progress: 60, name: "Round 1", description: "Data Analysis Test" },
-        {
-          progress: 85,
-          name: "Round 2",
-          description: "ML Concepts Discussion",
-        },
-      ],
-      skillStack: 52,
-      rank: 5,
-    },
-    {
-      name: "Roshni",
-      title: "Content Strategist",
-      location: "Denver",
-      experience: 5,
-      appliedDaysAgo: 11,
-      src: girl2,
-      rounds: [
-        { progress: 70, name: "Round 1", description: "Writing Test" },
-        { progress: 90, name: "Round 2", description: "Strategy Review" },
-      ],
-      skillStack: 45,
-      rank: 9,
-    },
-    {
-      name: "Arjun",
-      title: "Cybersecurity Specialist",
-      location: "Washington",
-      experience: 8,
-      appliedDaysAgo: 4,
-      src: boy4,
-      rounds: [
-        {
-          progress: 80,
-          name: "Round 1",
-          description: "Vulnerability Assessment",
-        },
-        { progress: 100, name: "Round 2", description: "Risk Management" },
-      ],
-      skillStack: 57,
-      rank: 4,
-    },
-    {
-      name: "Maya",
-      title: "Cloud Architect",
-      location: "Phoenix",
-      experience: 9,
-      appliedDaysAgo: 6,
-      src: girl3,
-      rounds: [
-        {
-          progress: 85,
-          name: "Round 1",
-          description: "Cloud Architecture Test",
-        },
-        { progress: 95, name: "Round 2", description: "System Design Review" },
-      ],
-      skillStack: 65,
-      rank: 1,
-    },
-    {
-      name: "Meenakshi",
-      title: "Marketing Analyst",
-      location: "San Diego",
-      experience: 4,
-      appliedDaysAgo: 13,
-      src: girl4,
-      rounds: [
-        { progress: 60, name: "Round 1", description: "Data Analysis" },
-        { progress: 80, name: "Round 2", description: "Marketing Strategy" },
-      ],
-      skillStack: 44,
       rank: 6,
     },
   ];
@@ -400,8 +207,8 @@ const ApplicantResult = () => {
       <Navbar assistant={Liyla} onLiylaActivate={toggleLiylaStatus} />
 
       {/* Company Description */}
-      <div className="h-[200px] px-12 relative mt-[2%]">
-        <div className="relative h-[90px]">
+      <div className="h-[45%] px-12 relative mt-[2%]">
+        <div className="relative h-[40%]">
           <div className="h-[70%] w-full bg-gradient-to-b from-[#FEC4CB] via-[#F4C8EF] to-[#F4C8EF] rounded-[20px]"></div>
           <img
             src={Company}
@@ -409,53 +216,49 @@ const ApplicantResult = () => {
             className="absolute top-[70%] left-0 transform -translate-y-1/2"
           />
         </div>
-        <div className="bg-white -mt-16 pb-2 rounded-[32px] rounded-t-none h-[160px] pt-[60px] pl-[40px] justify-between flex ">
-          <div className="">
-            <div className="flex">
-              <p className="font-bold text-[24px] text-[#353535] mr-3">
-                Senior UI/UX Designer
-              </p>
-              <p className="mt-3 mr-3 flex">
-                <img src={Location} alt="Location" className="w-5 h-5 mt-1" />
-                <span className="ml-0.5 text-[#979797] text-[14px] font-medium">
-                  Bangalore
-                </span>
-              </p>
-              <div className="flex items-center mr-[6px]">
-                <div className="border border-[#979797] rounded-full h-[4px] w-[4px] bg-[#979797]"></div>
-              </div>
-              <p className="mt-3 mr-3 flex">
-                <img src={Briefcase} alt="Briefcase" className="w-5 h-5 mt-1" />
-                <span className="ml-0.5 text-[#979797] text-[14px] font-medium">
-                  3 - 5 Yrs
-                </span>
-              </p>
+        <div className="bg-white -mt-16 pb-6 rounded-[32px] rounded-t-none h-[50%] pt-[65px] pl-[40px] justify-center flex flex-col">
+          <div className="flex">
+            <p className="font-bold text-[24px] text-[#353535] mr-3">
+              Senior UI/UX Designer
+            </p>
+            <p className="mt-3 mr-3 flex">
+              <img src={Location} alt="Location" className="w-5 h-5 mt-1" />
+              <span className="ml-0.5 text-[#979797] text-[14px] font-medium">
+                Bangalore
+              </span>
+            </p>
+            <div className="flex items-center mr-[6px]">
+              <div className="border border-[#979797] rounded-full h-[4px] w-[4px] bg-[#979797]"></div>
             </div>
-            <div className="flex justify-between pt-2">
-              <div className="flex">
-                <p className="text-[#353535] text-[18px]">Amazon</p>
-                <p className="text-[#979797] pl-5 flex">
-                  <img src={Star} alt="Star" className="w-6 h-6 mt-1" />
-                  <span className="pl-1 pr-2 text-[16px]">4.7</span>
-                </p>
-                <p className="pl-4 text-[#979797] text-[16px]">1267 reviews</p>
-              </div>
-            </div>
+            <p className="mt-3 mr-3 flex">
+              <img src={Briefcase} alt="Briefcase" className="w-5 h-5 mt-1" />
+              <span className="ml-0.5 text-[#979797] text-[14px] font-medium">
+                3 - 5 Yrs
+              </span>
+            </p>
           </div>
-          <div className="self-end pb-4 pr-5">
+          <div className="flex justify-between pt-2">
+            <div className="flex">
+              <p className="text-[#353535] text-[18px]">Amazon</p>
+              <p className="text-[#979797] pl-5 flex">
+                <img src={Star} alt="Star" className="w-6 h-6 mt-1" />
+                <span className="pl-1 pr-2 text-[16px]">4.7</span>
+              </p>
+              <p className="pl-4 text-[#979797] text-[16px]">1267 reviews</p>
+            </div>
             {helpButton ? (
-              <div className={`relative w-[300px] h-[40px] mr-[14px] self-end`}>
+              <div className={`relative w-[300px] h-[40px] mr-[14px]`}>
                 <div className="absolute inset-0 overflow-hidden rounded-full">
                   <div
                     ref={gradientRef}
-                    className="absolute inset-[-630%] "
+                    className="absolute inset-[-620%] origin-center"
                     style={{
-                      background: `conic-gradient(from -62.75deg at 50.01% 48.12%, #5C9AFF -58.82deg, #5C9AFF 0.91deg, #3973E8 52.72deg, #2760DD 100.52deg, #1E57D7 168.35deg, #3873E1 210.22deg, #5290EB 251.44deg, #5C9AFF 301.18deg, #5C9AFF 360.91deg)`,
+                      background: `conic-gradient(from 270deg, #C9FFFC 0%, #002DBF 25%, #4396F7 50%, #FF9BD2 75%, #C9FFFC 100%)`,
                       transform: "translateY(10%)",
                     }}
                   />
                 </div>
-
+                <div className="absolute inset-0 rounded-full bg-gray-800/70 backdrop-blur-sm" />
                 <input
                   type="text"
                   placeholder="Liyla Help"
@@ -486,26 +289,27 @@ const ApplicantResult = () => {
       </div>
 
       {/* Card Section */}
-      <div className="mt-[4rem] bg-[#F2F2F2]">
-        <div className=" mx-[30px] ">
-          <div className="h-full flex flex-wrap justify-center gap-[30px]  ">
-            {currentCandidates.map((candidate, index) => (
-              <Card
-                key={index}
-                index={index}
-                candidate={candidate}
-                showGradient={showGradient}
-                onGradientComplete={handleGradientComplete}
-                liylaHelp={liylaHelp}
-              />
-            ))}
-          </div>
+      <div
+        className="h-[50%] overflow-y-auto ml-[30px] -mt-[3%]"
+        style={{ direction: "rtl" }}
+      >
+        <div className="h-full flex flex-wrap" style={{ direction: "ltr" }}>
+          {currentCandidates.map((candidate, index) => (
+            <Card
+              key={index}
+              index={index}
+              candidate={candidate}
+              showGradient={showGradient}
+              onGradientComplete={handleGradientComplete}
+              liylaHelp={liylaHelp}
+            />
+          ))}
         </div>
       </div>
 
       {/* Pagination */}
-      <div className="h-[10%] flex items-center bg-[#F2F2F2] py-8">
-        <div className="ml-10 w-[50px] fixed bottom-5 z-20">
+      <div className="h-[10%] flex items-center">
+        <div className="ml-10 w-[50px]">
           <img src={hamburgerBar} alt="Hamburger menu" />
         </div>
         <div className="flex-grow flex justify-center">

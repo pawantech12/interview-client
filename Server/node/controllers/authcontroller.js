@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import OpenAI from "openai";
 import dotenv from "dotenv";
+import Applicant from "../Models/Applicant.js";
 dotenv.config();
 
 const test = () => {
@@ -98,8 +99,30 @@ const aitts = async (req, res) => {
   }
 };
 
+const saveApplicantDetail = async (req, res) => {
+  const { name, designation, experience, company, location } = req.body;
+  console.log(name, designation, experience, company, location);
+
+  try {
+    const newApplicant = new Applicant({
+      candidate_name: name,
+      designation,
+      experience,
+      company,
+      location,
+    });
+
+    await newApplicant.save();
+
+    res.status(201).json({ message: "Applicant details saved successfully" });
+  } catch (error) {
+    console.log("Error saving applicant details:", error);
+    res.status(500).json({ message: "Error saving applicant details" });
+  }
+};
 export default {
   test,
   storeInterviewData,
   aitts,
+  saveApplicantDetail,
 };
