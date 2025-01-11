@@ -21,7 +21,7 @@ const Card = ({
 
       const rotateGradient = () => {
         if (gradientRef.current) {
-          rotationRef.current = (rotationRef.current - 5) % 360;
+          rotationRef.current = (rotationRef.current - 2) % 360;
           gradientRef.current.style.transform = `translateY(10%) rotate(${rotationRef.current}deg)`;
         }
       };
@@ -88,7 +88,9 @@ const Card = ({
   return (
     <div
       className={`w-full md:w-[48%] lg:w-[48%] border border-white bg-white rounded-[24px] py-[16px] px-[24px]  relative overflow-hidden`}
-      style={{ direction: "ltr" }}
+      style={{
+        direction: "ltr",
+      }}
       onMouseEnter={(e) =>
         (e.currentTarget.style.boxShadow = "0px 4px 3px rgba(0, 114, 220, 0.3)")
       }
@@ -125,6 +127,10 @@ const Card = ({
                   src={candidate.src}
                   alt={candidate.name}
                   className="w-full h-full object-cover rounded-full shadow-inner grayscale-0"
+                  style={{
+                    maskImage:
+                      "radial-gradient(circle, rgba(0,0,0,0.6), rgba(0,0,0,1))",
+                  }}
                 />
               </figure>
               <div className="ml-4 flex justify-between w-[90%]">

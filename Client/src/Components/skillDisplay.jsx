@@ -26,14 +26,13 @@ const SkillDisplay = ({ skills, tableBGColor }) => {
   }, [timeoutId]);
 
   return (
-    <div 
-      className="relative inline-block" 
-      ref={containerRef}
-    >
+    <div className="relative flex gap-2 flex-wrap" ref={containerRef}>
       {visibleSkills.map((skill, idx) => (
         <span
           key={idx}
-          className={`inline-block rounded p-2 mr-2 text-[14px] font-medium bg-[#F3F3F3] pointer-events-none ${tableBGColor ? "text-black" : "text-[#656565]"}`}
+          className={`inline-block rounded p-2  text-[14px] font-medium bg-[#F3F3F3] pointer-events-none ${
+            tableBGColor ? "text-black" : "text-[#656565]"
+          }`}
         >
           {skill}
         </span>
@@ -55,10 +54,12 @@ const SkillDisplay = ({ skills, tableBGColor }) => {
           className="fixed rounded-lg border border-gray-100 bg-white p-3 shadow-xl z-[999999]"
           style={{
             zIndex: 99999,
-            left: containerRef.current ? 
-              `${containerRef.current.getBoundingClientRect().left}px` : 0,
-            top: containerRef.current ? 
-              `${containerRef.current.getBoundingClientRect().bottom + 8}px` : 0
+            left: containerRef.current
+              ? `${containerRef.current.getBoundingClientRect().left}px`
+              : 0,
+            top: containerRef.current
+              ? `${containerRef.current.getBoundingClientRect().bottom + 8}px`
+              : 0,
           }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}

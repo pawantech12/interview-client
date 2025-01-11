@@ -362,26 +362,26 @@ const ApplicantsPool = () => {
     setIsDropdownVisible(false);
 
     // Filter candidates based on the selected range
-    const filteredCandidates = candidates.filter((candidate) => {
-      if (range === "gold") return candidate.score >= 900;
+    const filteredCandidates = candidateData.filter((candidate) => {
+      if (range === "gold") return candidate.randomScore >= 900;
       if (range === "silver")
-        return candidate.score >= 800 && candidate.score < 900;
+        return candidate.randomScore >= 800 && candidate.randomScore < 900;
       if (range === "bronze")
-        return candidate.score >= 700 && candidate.score < 800;
+        return candidate.randomScore >= 700 && candidate.randomScore < 800;
       if (range === "601-700")
-        return candidate.score >= 601 && candidate.score < 700;
+        return candidate.randomScore >= 601 && candidate.randomScore < 700;
       if (range === "501-600")
-        return candidate.score >= 501 && candidate.score < 600;
+        return candidate.randomScore >= 501 && candidate.randomScore < 600;
       if (range === "401-500")
-        return candidate.score >= 401 && candidate.score < 500;
+        return candidate.randomScore >= 401 && candidate.randomScore < 500;
       if (range === "301-400")
-        return candidate.score >= 301 && candidate.score < 400;
+        return candidate.randomScore >= 301 && candidate.randomScore < 400;
       if (range === "201-300")
-        return candidate.score >= 201 && candidate.score < 300;
+        return candidate.randomScore >= 201 && candidate.randomScore < 300;
       return true; // Default case if range doesn't match
     });
 
-    setCurrentCandidates(filteredCandidates);
+    setCandidateData(filteredCandidates);
   };
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible); // Make sure the dropdown becomes visible when hovering over the button

@@ -1,10 +1,11 @@
-import sys
+import absl.logging
 import json
 import google.generativeai as genai
-import logging
+import sys
+import time
 
-# Set up logging to capture stderr output
-logging.basicConfig(level=logging.DEBUG)
+# Configure the logging verbosity
+absl.logging.set_verbosity(absl.logging.ERROR)  # Set logging to show only errors
 
 # Configure the Google Generative AI model
 GOOGLE_API_KEY = 'AIzaSyDvWHOj66I_JTJYy2o_0Ayt6QYyMftqHxw'  # Replace with your actual API key
@@ -23,11 +24,12 @@ def generate_skills(job_title, description, total_skills):
     - list: List of dictionaries containing a single skill.
     """
     model = genai.GenerativeModel('gemini-pro')
+    skills_set = set()  # To store unique skills
     skills_list = []
-    batch_size = 10  # Generate skills in batches of 100
+    batch_size = 100  # Generate skills in batches of 100
 
-    while len(skills_list) < total_skills:
-        remaining_skills = total_skills - len(skills_list)
+    while len(skills_set) < total_skills:
+        remaining_skills = total_skills - len(skills_set)
         current_batch_size = min(batch_size, remaining_skills)
         prompt = f"""
         Generate a list of exactly {current_batch_size} skills
@@ -49,38 +51,33 @@ def generate_skills(job_title, description, total_skills):
             lines = response.text.strip().split('\n')
             for line in lines:
                 if line.strip():  # Ensure the line is not empty
-                    try:
-                        # Extract the skill
-                        skill = line.strip()
+                    skill = line.strip()
+                    if skill not in skills_set:  # Add only unique skills
+                        skills_set.add(skill)
                         skills_list.append({"skills": [skill]})  # Store as a single skill in a list
-                    except Exception as e:
-                        print(f"Error parsing line: {line}. Error: {e}")
-            print(f"Generated {len(skills_list)} skills so far...")  # Print progress after each batch
+            print(f"Generated {len(skills_set)} unique skills so far...")  # Print progress after each batch
         except Exception as e:
             print(f"Error generating skills: {e}. Retrying...")
+            # Adding retry delay if error occurs
+            time.sleep(5)  # Sleep for 5 seconds before retrying
             continue
 
     return skills_list[:total_skills]  # Ensure we return only the required number of skills
 
 def main():
-    # Ensure the script gets parameters passed from Node.js (sys.argv)
-    if len(sys.argv) < 4:
-        print("Error: Insufficient arguments.")
-        sys.exit(1)
+    # Check if the script received command-line arguments
+    if len(sys.argv) > 1:
+        job_title = sys.argv[1]
+        description = sys.argv[2]
+        total_skills = int(sys.argv[3])
 
-    job_title = sys.argv[1]
-    description = sys.argv[2]
-    total_skills = int(sys.argv[3])
+        # Generate skills
+        skills_list = generate_skills(job_title, description, total_skills)
+        output_json = json.dumps(skills_list, indent=4)
+        print(output_json)
+    else:
+         print("This script must be called with command-line arguments.")
 
-    print(f"Generating a total of {total_skills} skills...\n")
-
-    # Generate skills
-    skills_list = generate_skills(job_title, description, total_skills)
-
-    # Display the output in JSON format
-    output_json = json.dumps(skills_list, indent=4)
-    print("\nGenerated Skills (JSON format):")
-    print(output_json)
 
 if __name__ == "__main__":
     main()
