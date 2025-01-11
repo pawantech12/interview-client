@@ -330,7 +330,7 @@ const ApplicantsPool = () => {
   const getRandomImage = () => {
     if (Array.isArray(images) && images.length > 0) {
       const randomIndex = Math.floor(Math.random() * images.length);
-      return images[randomIndex];
+      return `${images[randomIndex]}`;
     }
     return null; // or a fallback image URL
   };
@@ -905,7 +905,7 @@ const ApplicantsPool = () => {
 
                             <td className="z-20 flex items-center">
                               <img
-                                src={`images/${candidate.image}`}
+                                src={`images/${candidate.img}`}
                                 alt="Profile"
                                 className="h-[42px] w-[42px] rounded-full"
                               />
