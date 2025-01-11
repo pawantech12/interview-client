@@ -20,6 +20,7 @@ import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
 import ReactPaginate from "react-paginate";
 import { useConversation } from "@11labs/react";
+import axios from "axios";
 
 const ApplicantResult = () => {
   const candidates = [
@@ -29,7 +30,6 @@ const ApplicantResult = () => {
       location: "India",
       experience: 12,
       appliedDaysAgo: 15,
-      src: Sanjay,
       rounds: [
         { progress: 85, name: "Round 1", description: "Technical" },
         { progress: 95, name: "Round 2", description: "HR Interview" },
@@ -43,7 +43,6 @@ const ApplicantResult = () => {
       location: "America",
       experience: 6,
       appliedDaysAgo: 13,
-      src: Mukesh,
       rounds: [
         { progress: 20, name: "Round 1", description: "Design Task" },
         { progress: 35, name: "Round 2", description: "Team Interview" },
@@ -57,7 +56,6 @@ const ApplicantResult = () => {
       location: "Austin",
       experience: 8,
       appliedDaysAgo: 10,
-      src: Debaleena,
       rounds: [
         { progress: 60, name: "Round 1", description: "Portfolio Review" },
         { progress: 90, name: "Round 2", description: "Technical Round" },
@@ -71,7 +69,6 @@ const ApplicantResult = () => {
       location: "Chicago",
       experience: 12,
       appliedDaysAgo: 1,
-      src: Manjeet,
       rounds: [
         { progress: 60, name: "Round 1", description: "Technical" },
         { progress: 75, name: "Round 2", description: "HR Interview" },
@@ -85,7 +82,6 @@ const ApplicantResult = () => {
       location: "Boston",
       experience: 12,
       appliedDaysAgo: 7,
-      src: Priyansh,
       rounds: [
         { progress: 45, name: "Round 1", description: "Research Task" },
         { progress: 88, name: "Round 2", description: "Team Interview" },
@@ -99,7 +95,6 @@ const ApplicantResult = () => {
       location: "Seattle",
       experience: 4,
       appliedDaysAgo: 3,
-      src: Joe,
       rounds: [
         { progress: 55, name: "Round 1", description: "Technical" },
         { progress: 90, name: "Round 2", description: "HR Interview" },
@@ -113,7 +108,6 @@ const ApplicantResult = () => {
       location: "Bieden",
       experience: 6,
       appliedDaysAgo: 4,
-      src: Bieden,
       rounds: [
         { progress: 35, name: "Round 1", description: "Portfolio Review" },
         { progress: 75, name: "Round 2", description: "Team Interview" },
@@ -127,7 +121,6 @@ const ApplicantResult = () => {
       location: "Miami",
       experience: 8,
       appliedDaysAgo: 6,
-      src: Rajan,
       rounds: [
         { progress: 70, name: "Round 1", description: "Technical" },
         { progress: 100, name: "Round 2", description: "Final Round" },
@@ -143,15 +136,47 @@ const ApplicantResult = () => {
   const rotationRef = useRef(0);
   const [showGradient, setShowGradient] = useState(false);
   const [liylaHelp, setLiylaHelp] = useState(false);
-
+  const [images, setImages] = useState([]);
   const candidatesPerPage = 6;
   const pageCount = Math.ceil(candidates.length / candidatesPerPage);
+  const [candidateData, setCandidateData] = useState(candidates);
 
-  const currentCandidates = candidates.slice(
+  const currentCandidates = candidateData.slice(
     currentPage * candidatesPerPage,
     (currentPage + 1) * candidatesPerPage
   );
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get(
+          "https://interview-client-4r6g.onrender.com/api/images"
+        );
 
+        console.log(response);
+        setImages(response.data);
+      } catch (error) {
+        console.log("error:", error);
+      }
+    };
+    fetchImages();
+  }, []);
+  const getRandomImage = () => {
+    if (Array.isArray(images) && images.length > 0) {
+      const randomIndex = Math.floor(Math.random() * images.length);
+      return images[randomIndex];
+    }
+    return null; // or a fallback image URL
+  };
+
+  useEffect(() => {
+    // Generate random data for each candidate once
+    const dataWithRandomValues = currentCandidates?.map((candidate) => ({
+      ...candidate,
+
+      src: getRandomImage(),
+    }));
+    setCandidateData(dataWithRandomValues);
+  }, [candidateData,images]);
   const handlePageClick = (data) => {
     setCurrentPage(data.selected);
   };
@@ -293,8 +318,11 @@ const ApplicantResult = () => {
         className="h-[50%] overflow-y-auto ml-[30px] -mt-[3%]"
         style={{ direction: "rtl" }}
       >
-        <div className="h-full flex flex-wrap" style={{ direction: "ltr" }}>
-          {currentCandidates.map((candidate, index) => (
+        <div
+          className="h-full flex flex-wrap gap-6"
+          style={{ direction: "ltr" }}
+        >
+          {candidateData.map((candidate, index) => (
             <Card
               key={index}
               index={index}
