@@ -210,12 +210,12 @@ const ApplicantResult = () => {
   };
 
   return (
-    <div className="bg-[#F2F2F2] h-screen flex flex-col">
+    <div className="bg-[#F2F2F2] h-full flex flex-col">
       {/* Navbar */}
       <Navbar assistant={Liyla} onLiylaActivate={toggleLiylaStatus} />
 
       {/* Company Description */}
-      <div className="h-[45%] px-12 relative mt-[2%]">
+      <div className="h-[250px] px-12 relative mt-[2%]">
         <div className="relative h-[40%]">
           <div className="h-[70%] w-full bg-gradient-to-b from-[#FEC4CB] via-[#F4C8EF] to-[#F4C8EF] rounded-[20px]"></div>
           <img
@@ -224,7 +224,7 @@ const ApplicantResult = () => {
             className="absolute top-[70%] left-0 transform -translate-y-1/2"
           />
         </div>
-        <div className="bg-white -mt-16 pb-6 rounded-[32px] rounded-t-none h-[50%] pt-[65px] pl-[40px] justify-center flex flex-col">
+        <div className="bg-white -mt-14 pb-6 rounded-[32px] rounded-t-none h-[50%] pt-[70px] pl-[40px] justify-center flex flex-col">
           <div className="flex">
             <p className="font-bold text-[24px] text-[#353535] mr-3">
               Senior UI/UX Designer
@@ -298,7 +298,7 @@ const ApplicantResult = () => {
 
       {/* Card Section */}
       <div
-        className="h-[50%] overflow-y-auto ml-[30px] -mt-[3%]"
+        className=" overflow-y-auto ml-[30px] -mt-[3%]"
         style={{ direction: "rtl" }}
       >
         <div
@@ -323,8 +323,8 @@ const ApplicantResult = () => {
       </div>
 
       {/* Pagination */}
-      <div className="h-[10%] flex items-center">
-        <div className="ml-10 w-[50px]">
+      <div className="h-[10%] flex items-center mt-4">
+        <div className="ml-10 w-[50px] fixed bottom-2 z-10">
           <img src={hamburgerBar} alt="Hamburger menu" />
         </div>
         <div className="flex-grow flex justify-center">
