@@ -374,9 +374,10 @@ const ApplicantsPool = () => {
   const handleMenuClick = (range) => {
     setSelectedRange(range);
     setIsDropdownVisible(false);
+    const allCandidates = filteredCandidates.flat();
 
     // Filter candidates based on the selected range
-    const filteredCandidates = candidates.filter((candidate) => {
+    const filtered = allCandidates.filter((candidate) => {
       if (range === "900+") return candidate.randomScore >= 900;
       if (range === "801-900")
         return candidate.randomScore >= 800 && candidate.randomScore < 900;
@@ -395,9 +396,8 @@ const ApplicantsPool = () => {
       return true; // Default case if range doesn't match
     });
 
-    setFilteredCandidates(filteredCandidates); // Update the filtered candidates
+    setFilteredCandidates(filtered); // Update the filtered candidates
   };
-
 
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible); // Make sure the dropdown becomes visible when hovering over the button
