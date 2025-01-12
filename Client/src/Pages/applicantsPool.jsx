@@ -247,7 +247,7 @@ const ApplicantsPool = () => {
   const [currentCandidates, setCurrentCandidates] = useState();
   const [candidates, setCandidate] = useState(nameSkill);
   const [candidateData, setCandidateData] = useState();
-  const [filteredCandidates, setFilteredCandidates] = useState();
+  const [filteredCandidates, setFilteredCandidates] = useState([]);
   const [skills, setSkills] = useState(keySkill);
 
   const [images, setImages] = useState([]);
@@ -331,11 +331,14 @@ const ApplicantsPool = () => {
   }, [jobId, jobDetails]);
 
   const pageCount = Math.ceil(candidates.length / 10);
+  // Update currentCandidates when currentPage or filteredCandidates change
   useEffect(() => {
+    const sourceData =
+      filteredCandidates.length > 0 ? filteredCandidates : candidates;
     setCurrentCandidates(
-      candidates.slice(currentPage * 10, (currentPage + 1) * 10)
+      sourceData.slice(currentPage * 10, (currentPage + 1) * 10)
     );
-  }, [currentPage, candidates]);
+  }, [currentPage, candidates, filteredCandidates]);
   const getRandomCity = () => {
     const randomIndex = Math.floor(Math.random() * cityList.length);
     return cityList[randomIndex].city;
@@ -350,7 +353,7 @@ const ApplicantsPool = () => {
 
   useEffect(() => {
     // Generate random data for each candidate once
-    const dataWithRandomValues = currentCandidates?.map((candidate) => ({
+    const dataWithRandomValues = candidates?.map((candidate) => ({
       ...candidate,
       randomDate: generateRandomDate(),
       randomExp: generateRandomExperience(),
@@ -360,7 +363,7 @@ const ApplicantsPool = () => {
     }));
     setCandidateData(dataWithRandomValues); // This keeps the original data
     setFilteredCandidates(dataWithRandomValues);
-  }, [currentCandidates, images]);
+  }, [candidates, images]);
   const handleCheckboxChange = (idx) => {
     setSelectedCandidates((prevSelected) => {
       if (prevSelected.includes(idx)) {
@@ -375,6 +378,7 @@ const ApplicantsPool = () => {
     setSelectedRange(range);
     setIsDropdownVisible(false);
     const allCandidates = filteredCandidates.flat();
+    console.log("all candidate", candidates);
 
     // Filter candidates based on the selected range
     const filtered = allCandidates.filter((candidate) => {
@@ -841,8 +845,8 @@ const ApplicantsPool = () => {
               </thead>
 
               <tbody className="min-w-[1200px] overflow-y-auto bg-[#F1F4F8] mt-[12px] scrollbar-left h-[500px] min-h-[500px]">
-                {filteredCandidates?.length > 0 ? (
-                  filteredCandidates.map((candidate, idx) => {
+                {currentCandidates?.length > 0 ? (
+                  currentCandidates.map((candidate, idx) => {
                     return (
                       <React.Fragment key={idx}>
                         <tr className="flex items-center gap-5 ps-5 space-y-3">
