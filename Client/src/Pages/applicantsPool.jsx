@@ -330,7 +330,7 @@ const ApplicantsPool = () => {
     fetchImages();
   }, [jobId, jobDetails]);
 
-  const pageCount = Math.ceil(candidates.length / 10);
+  const pageCount = Math.ceil(filteredCandidates.length / 10);
   // Update currentCandidates when currentPage or filteredCandidates change
   useEffect(() => {
     const sourceData =
