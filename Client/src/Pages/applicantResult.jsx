@@ -224,7 +224,7 @@ const ApplicantResult = () => {
             className="absolute top-[70%] left-0 transform -translate-y-1/2"
           />
         </div>
-        <div className="bg-white -mt-14 pb-6 rounded-[32px] rounded-t-none h-[50%] pt-[70px] pl-[40px] justify-center flex flex-col">
+        <div className="bg-white -mt-12 pb-8 rounded-[32px] rounded-t-none h-[50%] pt-[70px] pl-[40px] justify-center flex flex-col">
           <div className="flex">
             <p className="font-bold text-[24px] text-[#353535] mr-3">
               Senior UI/UX Designer
@@ -255,7 +255,7 @@ const ApplicantResult = () => {
               <p className="pl-4 text-[#979797] text-[16px]">1267 reviews</p>
             </div>
             {helpButton ? (
-              <div className={`relative w-[300px] h-[40px] mr-[14px]`}>
+              <div className={`relative w-[300px] h-[40px] mr-[14px] -mt-8`}>
                 <div className="absolute inset-0 overflow-hidden rounded-full">
                   <div
                     ref={gradientRef}
@@ -283,7 +283,7 @@ const ApplicantResult = () => {
               </div>
             ) : (
               <div
-                className="w-[100px] mr-[14px] rounded-full flex items-center justify-center h-[40px] cursor-pointer"
+                className="w-[100px] mr-[14px] rounded-full flex items-center justify-center h-[40px] cursor-pointer -mt-8"
                 style={{
                   background: "linear-gradient(to right, #5C9AFF, #154DD1)",
                 }}
@@ -298,7 +298,7 @@ const ApplicantResult = () => {
 
       {/* Card Section */}
       <div
-        className=" overflow-y-auto ml-[30px] -mt-[3%]"
+        className=" overflow-y-auto ml-[30px] -mt-[0.5rem]"
         style={{ direction: "rtl" }}
       >
         <div

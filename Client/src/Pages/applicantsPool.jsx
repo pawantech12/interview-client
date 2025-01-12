@@ -253,16 +253,15 @@ const ApplicantsPool = () => {
   const [images, setImages] = useState([]);
 
   const { jobId } = useParams();
-  const generateRandomDate = () => {
-    const start = new Date(2020, 0, 1); // Start date: January 1, 2020
-    const end = new Date(); // Current date
-
+  const getRandomDate = (startDate, endDate) => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
     const randomDate = new Date(
       start.getTime() + Math.random() * (end.getTime() - start.getTime())
     );
 
     const day = randomDate.getDate();
-    const month = randomDate.toLocaleString("default", { month: "short" }); // Get the abbreviated month name
+    const month = randomDate.toLocaleString("default", { month: "short" });
     const year = randomDate.getFullYear();
 
     return `${day} ${month} / ${year}`;
@@ -355,7 +354,7 @@ const ApplicantsPool = () => {
     // Generate random data for each candidate once
     const dataWithRandomValues = candidates?.map((candidate) => ({
       ...candidate,
-      randomDate: generateRandomDate(),
+      randomDate: getRandomDate("2025-01-12", "2025-01-13"),
       randomExp: generateRandomExperience(),
       randomScore: generateRandomScore(),
       randomCity: getRandomCity(),
@@ -946,7 +945,7 @@ const ApplicantsPool = () => {
                                         : "text-[#A6A6A6]"
                                     }`}
                                   >
-                                    Frontend Developer
+                                    AI Engineer
                                   </span>
                                 </div>
                               </div>
