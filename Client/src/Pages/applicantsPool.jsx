@@ -377,7 +377,7 @@ const ApplicantsPool = () => {
   const handleMenuClick = (range) => {
     setSelectedRange(range);
     setIsDropdownVisible(false);
-    const allCandidates = filteredCandidates.flat();
+    const allCandidates = candidateData.flat();
     console.log("all candidate", candidates);
 
     // Filter candidates based on the selected range
