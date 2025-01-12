@@ -246,7 +246,7 @@ const ApplicantsPool = () => {
   const [currentCandidates, setCurrentCandidates] = useState();
   const [jobDetails, setJobDetails] = useState({});
   const [candidates, setCandidate] = useState(nameSkill);
-  const [candidateData, setCandidateData] = useState();
+  const [candidateData, setCandidateData] = useState(nameSkill);
   const [filteredCandidates, setFilteredCandidates] = useState();
   const [skills, setSkills] = useState(keySkill);
 
@@ -350,7 +350,7 @@ const ApplicantsPool = () => {
 
   useEffect(() => {
     // Generate random data for each candidate once
-    const dataWithRandomValues = currentCandidates?.map((candidate) => ({
+    const dataWithRandomValues = candidateData?.map((candidate) => ({
       ...candidate,
       randomDate: generateRandomDate(),
       randomExp: generateRandomExperience(),
@@ -360,7 +360,7 @@ const ApplicantsPool = () => {
     }));
     setCandidateData(dataWithRandomValues); // This keeps the original data
     setFilteredCandidates(dataWithRandomValues);
-  }, [currentCandidates, images]);
+  }, [candidateData, images]);
   const handleCheckboxChange = (idx) => {
     setSelectedCandidates((prevSelected) => {
       if (prevSelected.includes(idx)) {
