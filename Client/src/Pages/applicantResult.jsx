@@ -160,6 +160,10 @@ const ApplicantResult = () => {
     setCurrentPage(data.selected);
   };
 
+  const generateRandomSkillScore = () => {
+    return Math.floor(Math.random() * (900 - 600 + 1)) + 600;
+  };
+
   useEffect(() => {
     const rotateGradient = () => {
       if (gradientRef.current) {
@@ -301,16 +305,20 @@ const ApplicantResult = () => {
           className="h-full flex flex-wrap gap-6"
           style={{ direction: "ltr" }}
         >
-          {currentCandidates.map((candidate, index) => (
-            <Card
-              key={index}
-              index={index}
-              candidate={candidate}
-              showGradient={showGradient}
-              onGradientComplete={handleGradientComplete}
-              liylaHelp={liylaHelp}
-            />
-          ))}
+          {currentCandidates.map((candidate, index) => {
+            const skillScore = generateRandomSkillScore();
+            return (
+              <Card
+                key={index}
+                index={index}
+                candidate={candidate}
+                showGradient={showGradient}
+                onGradientComplete={handleGradientComplete}
+                liylaHelp={liylaHelp}
+                skillScore={skillScore}
+              />
+            );
+          })}
         </div>
       </div>
 

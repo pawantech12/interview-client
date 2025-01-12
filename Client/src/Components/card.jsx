@@ -7,6 +7,7 @@ const Card = ({
   showGradient,
   onGradientComplete,
   liylaHelp,
+  skillScore,
 }) => {
   const [isGradientVisible, setIsGradientVisible] = useState(false);
   const [showRecommendation, setShowRecommendation] = useState(false);
@@ -292,7 +293,7 @@ const Card = ({
                         : "bg-skill-gradient bg-clip-text text-transparent"
                     }`}
                   >
-                    {candidate.skillStack}
+                    {skillScore}
                   </p>
                   <div className="justify-center flex items-end ">
                     <p
