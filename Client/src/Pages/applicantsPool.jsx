@@ -243,10 +243,10 @@ const ApplicantsPool = () => {
   const [isShadowVisible, setIsShadowVisible] = useState(false);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const [selectedRange, setSelectedRange] = useState(null);
-  const [currentCandidates, setCurrentCandidates] = useState();
   const [jobDetails, setJobDetails] = useState({});
+  const [currentCandidates, setCurrentCandidates] = useState();
   const [candidates, setCandidate] = useState(nameSkill);
-  const [candidateData, setCandidateData] = useState(nameSkill);
+  const [candidateData, setCandidateData] = useState();
   const [filteredCandidates, setFilteredCandidates] = useState();
   const [skills, setSkills] = useState(keySkill);
 
@@ -350,7 +350,7 @@ const ApplicantsPool = () => {
 
   useEffect(() => {
     // Generate random data for each candidate once
-    const dataWithRandomValues = candidateData?.map((candidate) => ({
+    const dataWithRandomValues = currentCandidates?.map((candidate) => ({
       ...candidate,
       randomDate: generateRandomDate(),
       randomExp: generateRandomExperience(),
@@ -360,7 +360,7 @@ const ApplicantsPool = () => {
     }));
     setCandidateData(dataWithRandomValues); // This keeps the original data
     setFilteredCandidates(dataWithRandomValues);
-  }, [candidateData, images]);
+  }, [currentCandidates, images]);
   const handleCheckboxChange = (idx) => {
     setSelectedCandidates((prevSelected) => {
       if (prevSelected.includes(idx)) {
@@ -376,7 +376,7 @@ const ApplicantsPool = () => {
     setIsDropdownVisible(false);
 
     // Filter candidates based on the selected range
-    const filteredCandidates = candidateData.filter((candidate) => {
+    const filteredCandidates = candidates.filter((candidate) => {
       if (range === "900+") return candidate.randomScore >= 900;
       if (range === "801-900")
         return candidate.randomScore >= 800 && candidate.randomScore < 900;
@@ -397,6 +397,7 @@ const ApplicantsPool = () => {
 
     setFilteredCandidates(filteredCandidates); // Update the filtered candidates
   };
+
 
   const toggleDropdown = () => {
     setIsDropdownVisible(!isDropdownVisible); // Make sure the dropdown becomes visible when hovering over the button
