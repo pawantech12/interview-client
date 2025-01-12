@@ -469,7 +469,7 @@ const ApplicantsPool = () => {
       cancelAnimationFrame(buttonAnimationFrame.current);
       setButtonRotation(0);
       setCurrentCandidates(
-        candidates.slice(currentPage * 10, (currentPage + 1) * 10)
+        filteredCandidates.slice(currentPage * 10, (currentPage + 1) * 10)
       );
     } else {
       setIsAnimating(true);
