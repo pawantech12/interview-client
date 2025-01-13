@@ -227,7 +227,7 @@ const ApplicantResult = () => {
         <div className="bg-white -mt-12 pb-8 rounded-[32px] rounded-t-none h-[50%] pt-[70px] pl-[40px] justify-center flex flex-col">
           <div className="flex">
             <p className="font-bold text-[24px] text-[#353535] mr-3">
-              Senior UI/UX Designer
+              Senior MERN Stack
             </p>
             <p className="mt-3 mr-3 flex">
               <img src={Location} alt="Location" className="w-5 h-5 mt-1" />
